@@ -82,4 +82,4 @@ npm install jsdom
 node tests/integration.test.js
 ```
 
-The project documentation describes 80 checks covering the funnel, configuration-driven hiding, accordions, navigation, form validation, and submission paths. Run the tests to verify the current code.
+The project documentattion describes 80 checks covering the funnel, configuration-driven hiding, accordions, navigation, form validation, and submission paths. Run the tests to verify the current code.

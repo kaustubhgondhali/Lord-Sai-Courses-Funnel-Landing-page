@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Share Market Course — Lord Sai Investment &amp; Share Market Academy</title>
 <meta name="description" content="Structured share market education covering market fundamentals, technical and fundamental analysis, trading approaches and risk management. Enquire about the course.">
-<meta name="theme-color" content="#061748">
+<meta name="theme-color" content="#050F2E">
 <link rel="icon" href="assets/lord-sai-logo-300.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-bull-bear.webp" type="image/webp">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="top">
@@ -17,25 +18,23 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ======================================================================
-     HEADER
+     HEADER — logo and a single action. A funnel has no site navigation.
      ================================================================== -->
-<header class="site-header funnel-header" id="siteHeader">
-  <div class="shell header-inner">
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="Lord Sai Investment &amp; Share Market Academy — home">
       <img src="assets/lord-sai-logo-300.png"
            srcset="assets/lord-sai-logo-300.png 300w, assets/lord-sai-logo-420.png 420w"
-           sizes="(max-width:720px) 190px, 248px"
+           sizes="(max-width:640px) 150px, 210px"
            width="300" height="69"
            alt="Lord Sai Investment &amp; Share Market Academy">
     </a>
-
-
     <div class="header-actions">
-      <a class="btn btn-wa btn-sm js-wa header-wa" href="#" hidden aria-label="Enquire on WhatsApp">
-        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 00-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1012.04 2z"/><path d="M8.5 7.6c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .6.5l.8 1.9c.1.3 0 .5-.1.7l-.4.5c-.1.2-.2.3 0 .6a7.4 7.4 0 003.3 2.8c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5a2 2 0 01-1.4 1.6c-.6.2-1.4.2-3.4-.7a11 11 0 01-4.6-4.3c-.6-1.1-.6-2-.4-2.6z"/></svg>
+      <a class="btn btn-ghost btn-sm js-wa header-wa" href="#" hidden aria-label="Enquire on WhatsApp">
+        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1112 20.6a8.6 8.6 0 01-4.3-1.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 7.9c.2-.4.4-.4.6-.4h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5a6.6 6.6 0 003 2.5c.2.1.4.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4a1.8 1.8 0 01-1.3 1.5c-.5.2-1.3.2-3-.6a9.8 9.8 0 01-4.1-3.8c-.5-1-.5-1.8-.3-2.3z" fill="currentColor"/></svg>
         <span>WhatsApp</span>
       </a>
-      <a class="btn btn-cyan btn-sm header-cta" href="#enquiry">Get Course Details</a>
+      <a class="btn btn-primary btn-sm header-cta" href="#enquiry">Get Course Details</a>
     </div>
   </div>
 </header>
@@ -43,97 +42,99 @@
 <main id="main">
 
 <!-- ======================================================================
-     PHASE 1 — PROBLEM
+     1. HERO — the hook
      ================================================================== -->
-<section class="hero" id="hero" data-phase="1">
-  <div class="hero-bg" aria-hidden="true">
-    <svg class="hero-grid" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-          <path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
-        </pattern>
-        <linearGradient id="trendFade" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#08B8DC" stop-opacity="0"/>
-          <stop offset=".45" stop-color="#08B8DC" stop-opacity=".55"/>
-          <stop offset="1" stop-color="#08B8DC" stop-opacity=".9"/>
-        </linearGradient>
-      </defs>
-      <rect width="1200" height="620" fill="url(#grid)"/>
-      <!-- Abstract candlesticks: decorative, not any real instrument's data -->
-      <g class="hero-candles" stroke-linecap="round">
-        <g><line x1="120" y1="430" x2="120" y2="500"/><rect x="112" y="448" width="17" height="38" rx="3"/></g>
-        <g><line x1="176" y1="400" x2="176" y2="476"/><rect x="168" y="418" width="17" height="42" rx="3"/></g>
-        <g class="up"><line x1="232" y1="356" x2="232" y2="444"/><rect x="224" y="374" width="17" height="52" rx="3"/></g>
-        <g><line x1="288" y1="384" x2="288" y2="458"/><rect x="280" y="402" width="17" height="40" rx="3"/></g>
-        <g class="up"><line x1="344" y1="318" x2="344" y2="412"/><rect x="336" y="336" width="17" height="58" rx="3"/></g>
-        <g class="up"><line x1="400" y1="286" x2="400" y2="376"/><rect x="392" y="304" width="17" height="54" rx="3"/></g>
-        <g><line x1="456" y1="312" x2="456" y2="392"/><rect x="448" y="330" width="17" height="44" rx="3"/></g>
-        <g class="up"><line x1="512" y1="248" x2="512" y2="346"/><rect x="504" y="266" width="17" height="60" rx="3"/></g>
-      </g>
-      <path d="M100 486 L180 452 L250 408 L320 418 L392 352 L468 334 L540 282 L640 252 L760 196 L900 168 L1100 116"
-            fill="none" stroke="url(#trendFade)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-
-  <img class="hero-art" src="assets/hero-bull-bear.png" alt="" aria-hidden="true" width="768" height="533">
-
-  <div class="shell hero-inner">
-    <p class="brand-badge">Lord Sai Share Market Academy</p>
-    <h1>Want to <span class="hl">Understand the Share Market</span>, But Don't Know Where to Start?</h1>
-    <p class="hero-sub">Learn the Market. Build the Skill. Make More Informed Decisions.</p>
-    <p class="hero-desc">Explore structured share market education covering market fundamentals, technical analysis, chart reading, trading strategies, and disciplined risk management.</p>
-    <div class="cta-row">
-      <a class="btn btn-cyan btn-lg" href="#enquiry">Get Course Details</a>
-      <a class="btn btn-outline-light btn-lg js-wa" href="#" hidden>Enquire on WhatsApp</a>
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="brand-badge">Lord Sai Share Market Academy</p>
+      <h1>Want <span class="hl">Extra Income</span> From the Share Market? Learn the Skill Before You Risk a Rupee.</h1>
+      <p class="hero-sub">Learn the Market. Build the Skill. Make More Informed Decisions.</p>
+      <p class="hero-desc">Explore structured share market education covering market fundamentals, technical analysis, chart reading, trading strategies, and disciplined risk management.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+          <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg js-wa" href="#" hidden>
+          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1112 20.6a8.6 8.6 0 01-4.3-1.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 7.9c.2-.4.4-.4.6-.4h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5a6.6 6.6 0 003 2.5c.2.1.4.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4a1.8 1.8 0 01-1.3 1.5c-.5.2-1.3.2-3-.6a9.8 9.8 0 01-4.1-3.8c-.5-1-.5-1.8-.3-2.3z" fill="currentColor"/></svg>
+          Enquire on WhatsApp</a>
+      </div>
+      <!-- Level, languages and location — filled from course-config.js -->
+      <ul class="hero-facts" id="heroFacts" hidden></ul>
+      <p class="hero-risk">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M12 8.5v4M12 15.5h.01"/></svg>
+        <span>Share market investments and trading involve risk. This is an education programme — it does not guarantee profits.</span>
+      </p>
     </div>
-    <p class="hero-risk">Share market investments and trading involve risk. This is an education programme — it does not guarantee profits.</p>
+
+    <div class="hero-media">
+      <figure class="hero-frame">
+        <picture>
+          <source srcset="assets/hero-bull-bear.webp" type="image/webp">
+          <img src="assets/hero-bull-bear.jpg" width="763" height="528" alt="" fetchpriority="high">
+        </picture>
+      </figure>
+      <div class="float-chip chip-a" aria-hidden="true">
+        <span class="chip-ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 16V9M11 16V5M16 16v-4M21 16V8"/></svg></span>
+        <span><b>Technical Analysis</b><small>Charts, patterns &amp; indicators</small></span>
+      </div>
+      <div class="float-chip chip-b" aria-hidden="true">
+        <span class="chip-ico green"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.4l1.8 1.8 3.4-3.6"/></svg></span>
+        <span><b>Risk Management</b><small>Stop-losses &amp; position sizing</small></span>
+      </div>
+    </div>
   </div>
 </section>
 
-<ul class="trust-strip" aria-label="Course highlights">
-  <li>Structured curriculum</li>
-  <li>Practical chart analysis</li>
-  <li>Live market observation</li>
-  <li>Risk-first approach</li>
-</ul>
+<div class="wrap highlights-wrap">
+  <ul class="highlights" aria-label="Course highlights">
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>Structured curriculum</li>
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v4M7 15v6M17 4v3M17 14v6"/><rect x="5" y="7" width="4" height="8" rx="1"/><rect x="15" y="7" width="4" height="7" rx="1"/></svg></span>Practical chart analysis</li>
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg></span>Live market observation</li>
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.4l1.8 1.8 3.4-3.6"/></svg></span>Risk-first approach</li>
+  </ul>
+</div>
 
-<!-- Problem awareness -->
-<section class="section" id="problems" data-phase="1">
-  <div class="shell">
-    <header class="section-head section-head--center">
-      <p class="eyebrow">Phase 1 — The challenge</p>
-      <h2>Random Tips Are Not a Substitute for Understanding the Market.</h2>
+<!-- ======================================================================
+     2. PROBLEM
+     ================================================================== -->
+<section class="section" id="problems">
+  <div class="wrap">
+    <header class="section-head split-head">
+      <div>
+        <p class="eyebrow">The problem</p>
+        <h2>Random Tips Are Not a Substitute for Understanding the Market.</h2>
+      </div>
       <p class="lead">These are challenges people commonly describe when they start out. They will not all apply to everyone — but most learners recognise at least a few.</p>
     </header>
 
     <div class="cards cards-3">
       <article class="card">
-        <span class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/><circle cx="19" cy="17.5" r="3"/></svg></span>
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/><circle cx="19" cy="17.5" r="3"/></svg></span>
         <h3>Too Much Conflicting Information</h3>
         <p>Beginners may encounter different opinions, strategies and market predictions without knowing how to evaluate them.</p>
       </article>
       <article class="card">
-        <span class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M7 16V9m0-2v2m0 7v2"/><path d="M12 14V6m0-2v2m0 8v3"/><path d="M17 17v-5m0-2v2m0 5v2"/></svg></span>
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M7 16V9m0-2v2m0 7v2"/><path d="M12 14V6m0-2v2m0 8v3"/><path d="M17 17v-5m0-2v2m0 5v2"/></svg></span>
         <h3>Difficulty Reading Charts</h3>
         <p>Candlesticks, trends, indicators, support and resistance can feel confusing without a structured learning process.</p>
       </article>
       <article class="card">
-        <span class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18L9 8l4 6 3-4 4 8z"/><path d="M3 21h18"/></svg></span>
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18L9 8l4 6 3-4 4 8z"/><path d="M3 21h18"/></svg></span>
         <h3>No Clear Learning Roadmap</h3>
         <p>Trying to learn everything at once makes it hard to progress from basic concepts through to practical analysis.</p>
       </article>
       <article class="card">
-        <span class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-9.5A4.5 4.5 0 0112 8a4.5 4.5 0 017 3.5c0 5.1-7 9.5-7 9.5z"/></svg></span>
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-9.5A4.5 4.5 0 0112 8a4.5 4.5 0 017 3.5c0 5.1-7 9.5-7 9.5z"/></svg></span>
         <h3>Emotional Decision-Making</h3>
         <p>Fear, excitement and unrealistic expectations can all affect trading decisions.</p>
       </article>
       <article class="card">
-        <span class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M12 9v4M12 16h.01"/></svg></span>
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M12 9v4M12 16h.01"/></svg></span>
         <h3>Unclear Risk Management</h3>
         <p>Without understanding position sizing, stop-losses and risk–reward, learners may underestimate potential losses.</p>
       </article>
       <article class="card">
-        <span class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg></span>
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg></span>
         <h3>Acting Before Learning</h3>
         <p>Entering the market without understanding the instruments, the costs and the risks exposes people to avoidable mistakes.</p>
       </article>
@@ -141,29 +142,50 @@
   </div>
 </section>
 
-<!-- What you have already lost -->
-<section class="section section-tint" id="lost" data-phase="1">
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
+<!-- ======================================================================
+     3. WHAT YOU HAVE ALREADY LOST
+     ================================================================== -->
+<section class="section section-tint" id="lost">
+  <div class="wrap">
+    <header class="section-head center">
       <p class="eyebrow">What it has already cost</p>
       <h2>Learning Without Direction Has Already Cost Most Beginners Something.</h2>
       <p class="lead">Not money lost on the market, necessarily — but time, clarity and confidence. Many learners will recognise some of this.</p>
     </header>
-    <div class="cards cards-3">
-      <article class="card card-sm"><h3>Time</h3><p>Hours spent across videos, forums and tips that never added up to a clear understanding.</p></article>
-      <article class="card card-sm"><h3>Clarity</h3><p>Terms, charts and strategies that still feel confusing, however much you have read.</p></article>
-      <article class="card card-sm"><h3>Confidence</h3><p>Hesitation to act, or second-guessing decisions you cannot explain to yourself.</p></article>
+
+    <div class="loss-grid">
+      <article class="loss-card">
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12"/><path d="M7 3v2.5a5 5 0 002.2 4.1L12 12l2.8-2.4A5 5 0 0017 5.5V3"/><path d="M7 21v-2.5a5 5 0 012.2-4.1L12 12l2.8 2.4a5 5 0 012.2 4.1V21"/></svg></span>
+        <h3>Time</h3>
+        <p>Hours spent across videos, forums and tips that never added up to a clear understanding.</p>
+      </article>
+      <article class="loss-card">
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.1A9.7 9.7 0 0112 6c6 0 9.5 6 9.5 6a16.4 16.4 0 01-2.9 3.6M6.5 7.6C4 9.3 2.5 12 2.5 12S6 18 12 18a9.3 9.3 0 004.4-1.1"/><path d="M9.9 9.9a3 3 0 004.2 4.2"/></svg></span>
+        <h3>Clarity</h3>
+        <p>Terms, charts and strategies that still feel confusing, however much you have read.</p>
+      </article>
+      <article class="loss-card">
+        <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M21 11v6h-6"/></svg></span>
+        <h3>Confidence</h3>
+        <p>Hesitation to act, or second-guessing decisions you cannot explain to yourself.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- What you may lose next: consequences of delaying -->
-<section class="section section-tint" id="consequences" data-phase="1">
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
+<!-- ======================================================================
+     4. WHAT YOU MAY LOSE NEXT
+     ================================================================== -->
+<section class="section" id="consequences">
+  <div class="wrap risk-grid">
+    <div class="risk-copy">
+      <p class="eyebrow">What you may lose next</p>
       <h2>Without a Learning Plan, the Confusion Can Continue.</h2>
       <p class="lead">Nothing here is inevitable, and no one can tell you what the market will do. But these are the patterns that tend to persist when learning stays unstructured.</p>
-    </header>
+      <blockquote class="transition-quote">
+        The solution is not a shortcut to profits. It is learning how the market works, understanding risk, and developing a structured approach.
+      </blockquote>
+    </div>
 
     <ul class="consequence-list">
       <li>Continuing to depend on unverified tips and opinions.</li>
@@ -173,69 +195,145 @@
       <li>Spending time on disconnected resources with no structured progression.</li>
       <li>Developing unrealistic expectations about quick profits.</li>
     </ul>
-
-    <blockquote class="transition-quote">
-      The solution is not a shortcut to profits. It is learning how the market works, understanding risk, and developing a structured approach.
-    </blockquote>
-
-    <div class="cta-row cta-row--center">
-      <a class="btn btn-navy" href="#course">See How the Course Solves This</a>
-    </div>
-  </div>
-</section>
-
-<div class="cta-strip"><div class="shell"><p>Ready to replace guesswork with a structured plan?</p><a class="btn btn-cyan" href="#enquiry">Get Course Details</a></div></div>
-
-<!-- Solution introduction, moved up: follows the problem -->
-<section class="band" id="solution-intro" data-phase="2">
-  <div class="shell narrow band-inner">
-    <h2>You Can Start Learning With a <span class="hl">Structured Course</span>.</h2>
-    <p>Lord Sai Share Market Academy offers a learning path covering foundational market concepts, technical analysis, fundamental analysis, trading strategies and risk management.</p>
-    <ul class="benefit-row">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>A structured course curriculum</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Practical market examples and chart analysis</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Learning resources and support</span></li>
-    </ul>
-    <a class="btn btn-cyan btn-lg" href="#enquiry">Get Course Details</a>
   </div>
 </section>
 
 <!-- ======================================================================
-     PHASE 2 — FUTURE POSSIBILITIES
+     5. SOLUTION
      ================================================================== -->
-<section class="section section-navy" id="future" data-phase="2">
-  <div class="shell">
-    <header class="section-head section-head--center">
-      <p class="eyebrow eyebrow-cyan">Phase 2 — What you can learn</p>
+<section class="section section-dark" id="solution-intro">
+  <div class="wrap solution-grid">
+    <div>
+      <p class="eyebrow">The solution</p>
+      <h2>You Can Start Learning With a <span class="hl">Structured Course</span>.</h2>
+      <p class="lead">Lord Sai Share Market Academy offers a learning path covering foundational market concepts, technical analysis, fundamental analysis, trading strategies and risk management.</p>
+      <ul class="check-list">
+        <li>A structured course curriculum</li>
+        <li>Practical market examples and chart analysis</li>
+        <li>Learning resources and support</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+          <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Illustrative chart: decorative, not any real instrument's data -->
+    <figure class="chart-card" aria-hidden="true">
+      <div class="chart-head">
+        <span class="chart-dots"><i></i><i></i><i></i></span>
+        <span>Chart reading practice</span>
+        <span class="chart-tag">Illustrative</span>
+      </div>
+      <svg class="chart-svg" viewBox="0 0 560 300" role="presentation">
+      <line x1="0" y1="40" x2="560" y2="40" stroke="rgba(255,255,255,.06)"/>
+      <line x1="0" y1="90" x2="560" y2="90" stroke="rgba(255,255,255,.06)"/>
+      <line x1="0" y1="140" x2="560" y2="140" stroke="rgba(255,255,255,.06)"/>
+      <line x1="0" y1="190" x2="560" y2="190" stroke="rgba(255,255,255,.06)"/>
+      <line x1="0" y1="240" x2="560" y2="240" stroke="rgba(255,255,255,.06)"/>
+      <rect x="22" y="280" width="12" height="10" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="48" y="278" width="12" height="12" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="74" y="282" width="12" height="8" rx="1.5" fill="#F0616B" opacity=".22"/>
+      <rect x="100" y="274" width="12" height="16" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="126" y="272" width="12" height="18" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="152" y="270" width="12" height="20" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="178" y="266" width="12" height="24" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="204" y="268" width="12" height="22" rx="1.5" fill="#F0616B" opacity=".22"/>
+      <rect x="230" y="274" width="12" height="16" rx="1.5" fill="#F0616B" opacity=".22"/>
+      <rect x="256" y="276" width="12" height="14" rx="1.5" fill="#F0616B" opacity=".22"/>
+      <rect x="282" y="272" width="12" height="18" rx="1.5" fill="#F0616B" opacity=".22"/>
+      <rect x="308" y="270" width="12" height="20" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="334" y="268" width="12" height="22" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="360" y="264" width="12" height="26" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="386" y="256" width="12" height="34" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <rect x="412" y="260" width="12" height="30" rx="1.5" fill="#2BD49A" opacity=".22"/>
+      <line x1="8" y1="80" x2="432" y2="80" stroke="#F5B544" stroke-width="1.5" stroke-dasharray="6 5" opacity=".9"/>
+      <rect x="440" y="69" width="110" height="22" rx="11" fill="#F5B544" fill-opacity=".14" stroke="#F5B544" stroke-opacity=".55"/>
+      <text x="495" y="80" text-anchor="middle" dominant-baseline="central" fill="#F5B544">Resistance</text>
+      <line x1="8" y1="200" x2="432" y2="200" stroke="#2BD49A" stroke-width="1.5" stroke-dasharray="6 5" opacity=".9"/>
+      <rect x="440" y="189" width="110" height="22" rx="11" fill="#2BD49A" fill-opacity=".14" stroke="#2BD49A" stroke-opacity=".55"/>
+      <text x="495" y="200" text-anchor="middle" dominant-baseline="central" fill="#2BD49A">Support</text>
+      <line x1="8" y1="236" x2="432" y2="236" stroke="#F37A82" stroke-width="1.5" stroke-dasharray="6 5" opacity=".9"/>
+      <rect x="440" y="225" width="110" height="22" rx="11" fill="#F37A82" fill-opacity=".14" stroke="#F37A82" stroke-opacity=".55"/>
+      <text x="495" y="236" text-anchor="middle" dominant-baseline="central" fill="#F37A82">Stop-loss</text>
+      <line x1="28" y1="180" x2="28" y2="212" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="22" y="185" width="12" height="20" rx="2" fill="#2BD49A"/>
+      <line x1="54" y1="162" x2="54" y2="190" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="48" y="170" width="12" height="15" rx="2" fill="#2BD49A"/>
+      <line x1="80" y1="165" x2="80" y2="184" stroke="#F0616B" stroke-width="1.6"/>
+      <rect x="74" y="170" width="12" height="8" rx="2" fill="#F0616B"/>
+      <line x1="106" y1="145" x2="106" y2="182" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="100" y="150" width="12" height="28" rx="2" fill="#2BD49A"/>
+      <line x1="132" y1="120" x2="132" y2="156" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="126" y="128" width="12" height="22" rx="2" fill="#2BD49A"/>
+      <line x1="158" y1="96" x2="158" y2="132" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="152" y="104" width="12" height="24" rx="2" fill="#2BD49A"/>
+      <line x1="184" y1="80" x2="184" y2="110" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="178" y="88" width="12" height="16" rx="2" fill="#2BD49A"/>
+      <line x1="210" y1="82" x2="210" y2="118" stroke="#F0616B" stroke-width="1.6"/>
+      <rect x="204" y="88" width="12" height="24" rx="2" fill="#F0616B"/>
+      <line x1="236" y1="106" x2="236" y2="146" stroke="#F0616B" stroke-width="1.6"/>
+      <rect x="230" y="112" width="12" height="28" rx="2" fill="#F0616B"/>
+      <line x1="262" y1="134" x2="262" y2="174" stroke="#F0616B" stroke-width="1.6"/>
+      <rect x="256" y="140" width="12" height="28" rx="2" fill="#F0616B"/>
+      <line x1="288" y1="160" x2="288" y2="200" stroke="#F0616B" stroke-width="1.6"/>
+      <rect x="282" y="168" width="12" height="24" rx="2" fill="#F0616B"/>
+      <line x1="314" y1="166" x2="314" y2="204" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="308" y="170" width="12" height="22" rx="2" fill="#2BD49A"/>
+      <line x1="340" y1="132" x2="340" y2="176" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="334" y="138" width="12" height="32" rx="2" fill="#2BD49A"/>
+      <line x1="366" y1="98" x2="366" y2="142" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="360" y="104" width="12" height="34" rx="2" fill="#2BD49A"/>
+      <line x1="392" y1="64" x2="392" y2="108" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="386" y="72" width="12" height="32" rx="2" fill="#2BD49A"/>
+      <line x1="418" y1="44" x2="418" y2="78" stroke="#2BD49A" stroke-width="1.6"/>
+      <rect x="412" y="52" width="12" height="20" rx="2" fill="#2BD49A"/>
+      <polyline points="80,177.7 106,166.0 132,152.0 158,127.3 184,106.7 210,101.3 236,113.3 262,140.0 288,166.7 314,176.7 340,166.7 366,137.3 392,104.7 418,76.0" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================================================================
+     6. BENEFITS
+     ================================================================== -->
+<section class="section" id="future">
+  <div class="wrap">
+    <header class="section-head center">
+      <p class="eyebrow">What you can learn</p>
       <h2>Imagine Approaching the Market With <span class="hl">More Knowledge</span> and a Clearer Process.</h2>
       <p class="lead">Structured education can help you build a foundation for understanding market behaviour, analysing charts, learning trading concepts, and evaluating risk before making financial decisions.</p>
     </header>
 
-    <!-- Progression visual: foundation → analysis → risk awareness -->
     <ol class="progression" aria-label="Learning progression">
       <li>
-        <span class="pg-dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V6a2 2 0 012-2h12v15H6a2 2 0 00-2 2z"/><path d="M8 8h7M8 11.5h7"/></svg></span>
+        <span class="pg-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V6a2 2 0 012-2h12v15H6a2 2 0 00-2 2z"/><path d="M8 8h7M8 11.5h7"/></svg></span>
+        <span class="pg-step">Step 1</span>
         <h3>Foundation</h3><p>Terminology, instruments and how the market actually functions.</p>
       </li>
-      <li class="pg-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M14 7l5 5-5 5"/></svg></li>
+      <li class="pg-arrow" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
       <li>
-        <span class="pg-dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16V9M11 16V5M16 16v-4M21 16V8"/></svg></span>
+        <span class="pg-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16V9M11 16V5M16 16v-4M21 16V8"/></svg></span>
+        <span class="pg-step">Step 2</span>
         <h3>Analysis</h3><p>Reading charts, comparing technical and fundamental approaches.</p>
       </li>
-      <li class="pg-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M14 7l5 5-5 5"/></svg></li>
+      <li class="pg-arrow" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
       <li>
-        <span class="pg-dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.5l1.8 1.8 3.4-3.6"/></svg></span>
+        <span class="pg-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.5l1.8 1.8 3.4-3.6"/></svg></span>
+        <span class="pg-step">Step 3</span>
         <h3>Risk Awareness</h3><p>Position sizing, stop-losses and the discipline to apply them.</p>
       </li>
     </ol>
   </div>
 </section>
 
-<!-- Learning outcomes -->
-<section class="section" id="outcomes" data-phase="2">
-  <div class="shell">
-    <header class="section-head section-head--center">
-      <h2>What Learners Can Work Towards Understanding</h2>
+<section class="section section-tint" id="outcomes">
+  <div class="wrap">
+    <header class="section-head split-head">
+      <div>
+        <p class="eyebrow">Learning outcomes</p>
+        <h2>What Learners Can Work Towards Understanding</h2>
+      </div>
       <p class="lead">These are learning objectives, not promised results. Markets stay uncertain however well you understand them.</p>
     </header>
 
@@ -259,95 +357,113 @@
         <h3>Practise Market Analysis</h3>
         <p>Working through market scenarios, then reviewing and documenting analytical decisions.</p></article>
     </div>
-    <p class="note note-center">These are things you can learn to do. None of them promise profitability, accurate price prediction, or any particular income.</p>
+    <p class="note">These are things you can learn to do. None of them promise profitability, accurate price prediction, or any particular income.</p>
   </div>
 </section>
 
-<!-- Transformation journey -->
-<section class="section section-tint" id="journey" data-phase="2">
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
-      <h2>The Learning Journey, Step by Step</h2>
-    </header>
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="journey-grid">
+      <div class="journey-aside">
+        <p class="eyebrow">Your learning path</p>
+        <h2>The Learning Journey, Step by Step</h2>
+        <p class="note-box"><strong>Practice is educational.</strong> It builds your process — it does not remove market risk.</p>
+      </div>
 
-    <ol class="timeline">
-      <li><span class="tl-n">1</span><div><h3>Learn the Basics</h3><p>Understand share market terminology and mechanics.</p></div></li>
-      <li><span class="tl-n">2</span><div><h3>Study Market Charts</h3><p>Explore candlestick charts, patterns, indicators and trends.</p></div></li>
-      <li><span class="tl-n">3</span><div><h3>Understand Analysis</h3><p>Learn the difference between technical and fundamental analysis.</p></div></li>
-      <li><span class="tl-n">4</span><div><h3>Explore Strategies</h3><p>Understand different trading styles and what characterises each.</p></div></li>
-      <li><span class="tl-n">5</span><div><h3>Study Risk Management</h3><p>Why risk–reward planning, position sizing and emotional discipline matter.</p></div></li>
-      <li><span class="tl-n">6</span><div><h3>Review and Practise</h3><p>Use educational examples and market observation to build a more structured process.</p></div></li>
-    </ol>
-    <p class="note note-center"><strong>Practice is educational.</strong> It builds your process — it does not remove market risk.</p>
+      <ol class="timeline">
+        <li><span class="tl-n">1</span><div><h3>Learn the Basics</h3><p>Understand share market terminology and mechanics.</p></div></li>
+        <li><span class="tl-n">2</span><div><h3>Study Market Charts</h3><p>Explore candlestick charts, patterns, indicators and trends.</p></div></li>
+        <li><span class="tl-n">3</span><div><h3>Understand Analysis</h3><p>Learn the difference between technical and fundamental analysis.</p></div></li>
+        <li><span class="tl-n">4</span><div><h3>Explore Strategies</h3><p>Understand different trading styles and what characterises each.</p></div></li>
+        <li><span class="tl-n">5</span><div><h3>Study Risk Management</h3><p>Why risk–reward planning, position sizing and emotional discipline matter.</p></div></li>
+        <li><span class="tl-n">6</span><div><h3>Review and Practise</h3><p>Use educational examples and market observation to build a more structured process.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="cta-banner">
+      <p class="cta-banner-title">Want to see how the course fits your level?</p>
+      <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+        <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
-
-<div class="cta-strip"><div class="shell"><p>Want to see how the course fits your level?</p><a class="btn btn-cyan" href="#enquiry">Get Course Details</a></div></div>
 
 <!-- ======================================================================
-     PHASE 3 — THE COURSE
+     THE COURSE — details, curriculum, what's included
      ================================================================== -->
-<section class="section" id="course" data-phase="3">
-  <div class="shell">
-    <header class="section-head section-head--center">
-      <p class="eyebrow">Phase 3 — The course</p>
+<section class="section section-tint" id="course">
+  <div class="wrap">
+    <header class="section-head center">
+      <p class="eyebrow">The course</p>
       <h2>Learn the Share Market Step by Step With Lord Sai Share Market Academy.</h2>
       <p class="lead">Explore a structured share market education program designed to help learners understand market fundamentals, chart analysis, trading approaches and risk management.</p>
     </header>
 
-    <!-- Course facts — each row renders only if set in course-config.js -->
-    <dl class="facts" id="courseFacts"></dl>
-    <p class="note note-center" id="factsEnquireNote" hidden>
-      For current batch dates, duration and fees, please <a href="#enquiry">send an enquiry</a> — we would rather tell you directly than publish something out of date.
-    </p>
+    <div class="course-grid">
+      <div class="panel">
+        <h3 class="panel-title">Course details</h3>
+        <!-- Each row renders only if set in course-config.js -->
+        <dl class="facts" id="courseFacts"></dl>
+        <p class="facts-note" id="factsEnquireNote" hidden>
+          For current batch dates, duration and fees, please <a href="#enquiry">send an enquiry</a> — we would rather tell you directly than publish something out of date.
+        </p>
+      </div>
+
+      <div class="panel panel-included" id="features" hidden>
+        <h3 class="panel-title">What's Included</h3>
+        <p class="panel-sub">Only what the course genuinely provides is listed here.</p>
+        <ul class="feature-list" id="featureList"></ul>
+        <a class="btn btn-primary btn-block" href="#enquiry">Get Course Details
+          <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Curriculum -->
-<section class="section section-tint" id="curriculum" data-phase="3">
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
-      <h2>Course Curriculum</h2>
+<section class="section section-dark" id="curriculum">
+  <div class="wrap">
+    <header class="section-head split-head">
+      <div>
+        <p class="eyebrow">Curriculum</p>
+        <h2>Course Curriculum</h2>
+      </div>
       <p class="lead">What the programme covers, module by module.</p>
     </header>
     <div class="modules" id="moduleList"></div>
   </div>
 </section>
 
-<!-- Features -->
-<section class="section" id="features" data-phase="3" hidden>
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
-      <h2>What's Included</h2>
-      <p class="lead">Only what the course genuinely provides is listed here.</p>
-    </header>
-    <ul class="feature-grid" id="featureList"></ul>
-  </div>
-</section>
-
-<!-- Why structured education -->
-<section class="section section-tint" id="why" data-phase="3">
-  <div class="shell">
-    <header class="section-head section-head--center">
+<section class="section" id="why">
+  <div class="wrap">
+    <header class="section-head center">
+      <p class="eyebrow">Why structured learning</p>
       <h2>Build Your Understanding Before Making Market Decisions.</h2>
     </header>
-    <div class="cards cards-3">
-      <article class="card card-sm"><h3>Understand market terminology</h3><p>Follow market commentary and documentation without getting lost in jargon.</p></article>
-      <article class="card card-sm"><h3>Develop chart-reading familiarity</h3><p>Look at a chart and know what you are actually looking at.</p></article>
-      <article class="card card-sm"><h3>Compare analytical approaches</h3><p>See where technical and fundamental analysis each have something to offer.</p></article>
-      <article class="card card-sm"><h3>Understand risk planning</h3><p>Know what you stand to lose before you consider what you might gain.</p></article>
-      <article class="card card-sm"><h3>Explore concepts through lessons</h3><p>Build knowledge in a deliberate order rather than in scattered fragments.</p></article>
-      <article class="card card-sm"><h3>Build a learning routine</h3><p>Turn occasional curiosity into consistent, reviewable study.</p></article>
+
+    <div class="why-grid">
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Understand market terminology</h3><p>Follow market commentary and documentation without getting lost in jargon.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Develop chart-reading familiarity</h3><p>Look at a chart and know what you are actually looking at.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Compare analytical approaches</h3><p>See where technical and fundamental analysis each have something to offer.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Understand risk planning</h3><p>Know what you stand to lose before you consider what you might gain.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Explore concepts through lessons</h3><p>Build knowledge in a deliberate order rather than in scattered fragments.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Build a learning routine</h3><p>Turn occasional curiosity into consistent, reviewable study.</p></div></article>
+    </div>
+
+    <div class="cta-banner">
+      <p class="cta-banner-title">Questions about batches, duration or admission? Ask us directly.</p>
+      <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+        <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<div class="cta-strip"><div class="shell"><p>Questions about batches, duration or admission? Ask us directly.</p><a class="btn btn-cyan" href="#enquiry">Get Course Details</a></div></div>
-
-<!-- Proof: rendered only from real details supplied in course-config.js -->
-<section class="section section-navy" id="proof" data-phase="3" hidden>
-  <div class="shell">
-    <header class="section-head section-head--center">
+<!-- ======================================================================
+     7. PROOF — rendered only from real details supplied in course-config.js
+     ================================================================== -->
+<section class="section section-tint" id="proof" hidden>
+  <div class="wrap">
+    <header class="section-head center">
+      <p class="eyebrow">Why trust us</p>
       <h2>Why Learners Can Trust This Course</h2>
     </header>
     <ul class="proof-stats" id="proofStats"></ul>
@@ -356,48 +472,71 @@
   </div>
 </section>
 
-<!-- Enquiry form -->
-<section class="section" id="enquiry" data-phase="3">
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
+<!-- ======================================================================
+     8. ENQUIRY
+     ================================================================== -->
+<section class="section section-dark" id="enquiry">
+  <div class="wrap enquiry-grid">
+    <div class="enquiry-copy">
+      <p class="eyebrow">Enquire now</p>
       <h2>Ready to Learn More About the Share Market Course?</h2>
       <p class="lead">Submit your enquiry to learn more about the curriculum, training format, upcoming batches and admission details.</p>
-    </header>
+      <ol class="next-steps" aria-label="What happens next">
+        <li><span class="ns-n">1</span><div><h3>Send your enquiry</h3><p>Share your name, number and preferred contact method.</p></div></li>
+        <li><span class="ns-n">2</span><div><h3>We get back to you</h3><p>Using the contact method you choose in the form.</p></div></li>
+        <li><span class="ns-n">3</span><div><h3>Get the current details</h3><p>Upcoming batches, duration, fees and admission.</p></div></li>
+      </ol>
+    </div>
 
-    <form class="enquiry" id="enquiryForm" novalidate>
-      <div class="grid-2">
-        <div class="field">
-          <label for="fName">Full Name <em class="req">required</em></label>
-          <input type="text" id="fName" name="name" autocomplete="name" required aria-describedby="eName" placeholder="Your full name">
-          <p class="err" id="eName" hidden>Please enter your full name.</p>
-        </div>
+    <div class="form-card">
+      <h3 class="form-title">Get Course Details</h3>
+      <p class="form-sub">Fill in your details and our team will get back to you.</p>
 
-        <div class="field">
-          <label for="fMobile">Mobile Number <em class="req">required</em></label>
-          <div class="combo">
-            <select id="fCode" name="countryCode" class="cc" aria-label="Country code">
-              <option value="+91" selected>+91</option>
-              <option value="+971">+971</option>
-              <option value="+966">+966</option>
-              <option value="+968">+968</option>
-              <option value="+974">+974</option>
-              <option value="+65">+65</option>
-              <option value="+44">+44</option>
-              <option value="+1">+1</option>
-              <option value="+61">+61</option>
-            </select>
-            <input type="tel" id="fMobile" name="mobile" inputmode="tel" autocomplete="tel-national" required aria-describedby="eMobile" placeholder="10-digit mobile number">
+      <form class="enquiry" id="enquiryForm" novalidate>
+        <div class="grid-2">
+          <div class="field">
+            <label for="fName">Full Name <em class="req">required</em></label>
+            <input type="text" id="fName" name="name" autocomplete="name" required aria-describedby="eName" placeholder="Your full name">
+            <p class="err" id="eName" hidden>Please enter your full name.</p>
           </div>
-          <p class="err" id="eMobile" hidden>Please enter a valid mobile number.</p>
+
+          <div class="field">
+            <label for="fMobile">Mobile Number <em class="req">required</em></label>
+            <div class="combo">
+              <select id="fCode" name="countryCode" class="cc" aria-label="Country code">
+                <option value="+91" selected>+91</option>
+                <option value="+971">+971</option>
+                <option value="+966">+966</option>
+                <option value="+968">+968</option>
+                <option value="+974">+974</option>
+                <option value="+65">+65</option>
+                <option value="+44">+44</option>
+                <option value="+1">+1</option>
+                <option value="+61">+61</option>
+              </select>
+              <input type="tel" id="fMobile" name="mobile" inputmode="tel" autocomplete="tel-national" required aria-describedby="eMobile" placeholder="10-digit mobile number">
+            </div>
+            <p class="err" id="eMobile" hidden>Please enter a valid mobile number.</p>
+          </div>
+
+          <div class="field">
+            <label for="fEmail">Email Address <em class="opt">optional</em></label>
+            <input type="email" id="fEmail" name="email" autocomplete="email" aria-describedby="eEmail" placeholder="you@example.com">
+            <p class="err" id="eEmail" hidden>Please enter a valid email address, or leave this blank.</p>
+          </div>
+
+          <div class="field">
+            <label for="fLanguage">Preferred Language <em class="opt">optional</em></label>
+            <select id="fLanguage" name="preferredLanguage">
+              <option value="">No preference</option>
+              <option value="english">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="marathi">Marathi</option>
+            </select>
+          </div>
         </div>
 
-        <div class="field">
-          <label for="fEmail">Email Address <em class="opt">optional</em></label>
-          <input type="email" id="fEmail" name="email" autocomplete="email" aria-describedby="eEmail" placeholder="you@example.com">
-          <p class="err" id="eEmail" hidden>Please enter a valid email address, or leave this blank.</p>
-        </div>
-
-        <div class="field">
+        <div class="field field-full">
           <label for="fExperience">Learning Experience <em class="opt">optional</em></label>
           <select id="fExperience" name="experience">
             <option value="">Prefer not to say</option>
@@ -407,78 +546,181 @@
           </select>
         </div>
 
-        <div class="field">
-          <label for="fLanguage">Preferred Language <em class="opt">optional</em></label>
-          <select id="fLanguage" name="preferredLanguage">
-            <option value="">No preference</option>
-            <option value="english">English</option>
-            <option value="hindi">Hindi</option>
-            <option value="marathi">Marathi</option>
-          </select>
+        <fieldset class="field field-full">
+          <legend>Preferred Contact Method <em class="req">required</em></legend>
+          <div class="radios" aria-describedby="eMethod">
+            <label class="radio"><input type="radio" name="contactMethod" value="phone" checked><span>Phone</span></label>
+            <label class="radio js-wa-radio" hidden><input type="radio" name="contactMethod" value="whatsapp"><span>WhatsApp</span></label>
+            <label class="radio"><input type="radio" name="contactMethod" value="email"><span>Email</span></label>
+          </div>
+          <p class="err" id="eMethod" hidden></p>
+        </fieldset>
+
+        <div class="field field-full">
+          <label for="fMessage">Message or Question <em class="opt">optional</em></label>
+          <textarea id="fMessage" name="message" rows="3" placeholder="Anything you would like to ask about the course"></textarea>
         </div>
-      </div>
 
-      <fieldset class="field field-full">
-        <legend>Preferred Contact Method <em class="req">required</em></legend>
-        <div class="radios" aria-describedby="eMethod">
-          <label class="radio"><input type="radio" name="contactMethod" value="phone" checked><span>Phone</span></label>
-          <label class="radio js-wa-radio" hidden><input type="radio" name="contactMethod" value="whatsapp"><span>WhatsApp</span></label>
-          <label class="radio"><input type="radio" name="contactMethod" value="email"><span>Email</span></label>
+        <div class="field field-full consent-field">
+          <label class="checkbox">
+            <input type="checkbox" id="fConsent" name="consent" required aria-describedby="eConsent">
+            <span>I agree to be contacted about this enquiry using the contact method I selected.</span>
+          </label>
+          <p class="err" id="eConsent" hidden>Please tick the consent box so we are permitted to contact you.</p>
         </div>
-        <p class="err" id="eMethod" hidden></p>
-      </fieldset>
 
-      <div class="field field-full">
-        <label for="fMessage">Message or Question <em class="opt">optional</em></label>
-        <textarea id="fMessage" name="message" rows="4" placeholder="Anything you would like to ask about the course"></textarea>
-      </div>
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">
+            <span class="btn-label">Submit Course Enquiry</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+          <a class="btn btn-wa btn-lg btn-block js-wa" href="#" hidden>Ask Us on WhatsApp</a>
+        </div>
+        <p class="wa-hint" id="waHint" hidden>This opens WhatsApp with your details already written out. You still press send inside WhatsApp.</p>
 
-      <div class="field field-full consent-field">
-        <label class="checkbox">
-          <input type="checkbox" id="fConsent" name="consent" required aria-describedby="eConsent">
-          <span>I agree to be contacted about this enquiry using the contact method I selected.</span>
-        </label>
-        <p class="err" id="eConsent" hidden>Please tick the consent box so we are permitted to contact you.</p>
-      </div>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
 
-      <p class="privacy-note">Your details are used only to respond to this enquiry.</p>
-      <p class="privacy-note privacy-links" id="formPolicyLinks" hidden>
-        <a href="#" id="formPrivacy" hidden>Privacy Policy</a>
-        <a href="#" id="formTerms" hidden>Terms of Use</a>
-      </p>
-
-      <div class="submit-row">
-        <button type="submit" class="btn btn-cyan btn-lg btn-block" id="submitBtn">
-          <span class="btn-label">Submit Course Enquiry</span>
-          <span class="spinner" aria-hidden="true"></span>
-        </button>
-        <a class="btn btn-wa btn-lg btn-block js-wa" href="#" hidden>Ask Us on WhatsApp</a>
-      </div>
-      <p class="wa-hint" id="waHint" hidden>This opens WhatsApp with your details already written out. You still press send inside WhatsApp.</p>
-
-      <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
-    </form>
+        <p class="privacy-note">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+          Your details are used only to respond to this enquiry.
+        </p>
+        <p class="privacy-note privacy-links" id="formPolicyLinks" hidden>
+          <a href="#" id="formPrivacy" hidden>Privacy Policy</a>
+          <a href="#" id="formTerms" hidden>Terms of Use</a>
+        </p>
+      </form>
+    </div>
   </div>
 </section>
 
-<!-- FAQs -->
-<section class="section section-tint" id="faqs" data-phase="3">
-  <div class="shell narrow">
-    <header class="section-head section-head--center">
+<!-- ======================================================================
+     FAQs
+     ================================================================== -->
+<section class="section" id="faqs">
+  <div class="wrap faq-grid">
+    <div class="faq-aside">
+      <p class="eyebrow">FAQs</p>
       <h2>Frequently Asked Questions</h2>
-    </header>
+      <p class="lead">Can't find your answer here? Ask us directly through the enquiry form.</p>
+      <a class="btn btn-dark" href="#enquiry">Ask a Question
+        <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
     <div class="faq" id="faqList"></div>
   </div>
 </section>
 
-<!-- Final CTA -->
-<section class="final" id="final" data-phase="3">
-  <div class="shell narrow band-inner">
+<!-- ======================================================================
+     FINAL CALL TO ACTION
+     ================================================================== -->
+<section class="final" id="final">
+  <svg class="final-chart" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs><linearGradient id="finalFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22D3EE" stop-opacity=".22"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></linearGradient></defs>
+  <line x1="18" y1="262" x2="18" y2="281" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="12" y="267" width="12" height="3" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="48" y1="258" x2="48" y2="278" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="42" y="267" width="12" height="3" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="78" y1="259" x2="78" y2="274" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="72" y="268" width="12" height="2" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="108" y1="258" x2="108" y2="273" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="102" y="262" width="12" height="6" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="138" y1="234" x2="138" y2="268" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="132" y="246" width="12" height="17" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="168" y1="221" x2="168" y2="259" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="162" y="231" width="12" height="15" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="198" y1="223" x2="198" y2="249" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="192" y="231" width="12" height="4" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="228" y1="221" x2="228" y2="242" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="222" y="234" width="12" height="2" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="258" y1="228" x2="258" y2="249" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="252" y="234" width="12" height="8" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="288" y1="236" x2="288" y2="261" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="282" y="242" width="12" height="9" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="318" y1="228" x2="318" y2="260" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="312" y="236" width="12" height="15" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="348" y1="206" x2="348" y2="242" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="342" y="210" width="12" height="26" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="378" y1="200" x2="378" y2="218" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="372" y="209" width="12" height="2" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="408" y1="198" x2="408" y2="216" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="402" y="206" width="12" height="3" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="438" y1="195" x2="438" y2="223" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="432" y="206" width="12" height="10" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="468" y1="207" x2="468" y2="232" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="462" y="216" width="12" height="3" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="498" y1="213" x2="498" y2="234" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="492" y="219" width="12" height="2" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="528" y1="190" x2="528" y2="232" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="522" y="198" width="12" height="22" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="558" y1="173" x2="558" y2="202" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="552" y="182" width="12" height="16" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="588" y1="167" x2="588" y2="192" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="582" y="179" width="12" height="3" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="618" y1="172" x2="618" y2="192" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="612" y="179" width="12" height="2" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="648" y1="172" x2="648" y2="193" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="642" y="181" width="12" height="3" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="678" y1="171" x2="678" y2="203" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="672" y="184" width="12" height="10" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="708" y1="185" x2="708" y2="205" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="702" y="189" width="12" height="5" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="738" y1="163" x2="738" y2="202" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="732" y="177" width="12" height="13" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="768" y1="147" x2="768" y2="188" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="762" y="155" width="12" height="22" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="798" y1="131" x2="798" y2="160" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="792" y="139" width="12" height="15" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="828" y1="135" x2="828" y2="152" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="822" y="139" width="12" height="2" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="858" y1="134" x2="858" y2="155" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="852" y="140" width="12" height="7" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="888" y1="143" x2="888" y2="174" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="882" y="147" width="12" height="18" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="918" y1="145" x2="918" y2="178" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="912" y="158" width="12" height="7" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="948" y1="144" x2="948" y2="166" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="942" y="151" width="12" height="7" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="978" y1="113" x2="978" y2="164" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="972" y="126" width="12" height="24" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1008" y1="106" x2="1008" y2="133" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1002" y="112" width="12" height="14" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1038" y1="103" x2="1038" y2="123" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1032" y="112" width="12" height="2" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1068" y1="109" x2="1068" y2="129" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1062" y="113" width="12" height="8" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1098" y1="111" x2="1098" y2="142" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1092" y="120" width="12" height="8" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1128" y1="119" x2="1128" y2="141" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1122" y="128" width="12" height="3" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1158" y1="114" x2="1158" y2="144" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1152" y="118" width="12" height="13" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1188" y1="91" x2="1188" y2="130" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1182" y="103" width="12" height="15" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1218" y1="78" x2="1218" y2="108" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1212" y="86" width="12" height="17" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1248" y1="82" x2="1248" y2="95" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1242" y="86" width="12" height="4" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1278" y1="84" x2="1278" y2="98" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1272" y="90" width="12" height="2" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1308" y1="86" x2="1308" y2="100" stroke="#3B82F6" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="1302" y="90" width="12" height="4" rx="2" fill="#3B82F6" fill-opacity=".4"/>
+  <line x1="1338" y1="84" x2="1338" y2="98" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1332" y="92" width="12" height="2" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1368" y1="82" x2="1368" y2="98" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1362" y="92" width="12" height="2" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1398" y1="58" x2="1398" y2="99" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1392" y="65" width="12" height="26" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <line x1="1428" y1="40" x2="1428" y2="79" stroke="#22D3EE" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="1422" y="53" width="12" height="13" rx="2" fill="#22D3EE" fill-opacity=".55"/>
+  <polygon points="18,320 18,267 48,270 78,268 108,262 138,246 168,231 198,235 228,234 258,242 288,251 318,236 348,210 378,209 408,206 438,216 468,219 498,220 528,198 558,182 588,179 618,181 648,184 678,194 708,189 738,177 768,155 798,139 828,140 858,147 888,166 918,158 948,151 978,126 1008,112 1038,113 1068,120 1098,128 1128,131 1158,118 1188,103 1218,86 1248,90 1278,90 1308,94 1338,92 1368,92 1398,65 1428,53 1428,320" fill="url(#finalFade)"/>
+  <polyline points="18,267 48,270 78,268 108,262 138,246 168,231 198,235 228,234 258,242 288,251 318,236 348,210 378,209 408,206 438,216 468,219 498,220 528,198 558,182 588,179 618,181 648,184 678,194 708,189 738,177 768,155 798,139 828,140 858,147 888,166 918,158 948,151 978,126 1008,112 1038,113 1068,120 1098,128 1128,131 1158,118 1188,103 1218,86 1248,90 1278,90 1308,94 1338,92 1368,92 1398,65 1428,53" fill="none" stroke="#22D3EE" stroke-opacity=".7" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+  <div class="wrap final-inner">
     <h2>Learn the Market. <span class="hl">Understand the Risk.</span> Build Your Skills.</h2>
     <p>Take the first step towards structured share market education with Lord Sai Share Market Academy.</p>
-    <div class="cta-row cta-row--center">
-      <a class="btn btn-cyan btn-lg" href="#enquiry">Enquire About the Course</a>
-      <a class="btn btn-outline-light btn-lg js-wa" href="#" hidden>Talk to Us on WhatsApp</a>
+    <div class="cta-row cta-center">
+      <a class="btn btn-primary btn-lg" href="#enquiry">Enquire About the Course
+        <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost btn-lg js-wa" href="#" hidden>Talk to Us on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -489,13 +731,11 @@
      FOOTER
      ================================================================== -->
 <footer class="site-footer">
-  <div class="shell">
-    <div class="foot-grid">
-      <div class="foot-col foot-brand">
-        <span class="foot-logo">
-          <img src="assets/lord-sai-logo-420.png" width="420" height="97" loading="lazy"
-               alt="Lord Sai Investment &amp; Share Market Academy">
-        </span>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="foot-logo" src="assets/lord-sai-logo-420.png" width="420" height="97" loading="lazy"
+             alt="Lord Sai Investment &amp; Share Market Academy">
         <p id="footAbout">Structured share market education covering market fundamentals, analysis, trading approaches and risk management.</p>
       </div>
 
@@ -522,19 +762,16 @@
 
     <div class="foot-base">
       <p id="copyright">© 2026 Lord Sai Investment &amp; Share Market Academy. All rights reserved.</p>
-      <p class="muted">Educational content only. Not investment advice.</p>
+      <p>Educational content only. Not investment advice.</p>
     </div>
   </div>
 </footer>
 
+<!-- Sticky enquiry bar (small screens) -->
 <div class="sticky-cta" id="stickyCta">
   <span>Start learning the market the structured way.</span>
-  <a class="btn btn-cyan btn-sm" href="#enquiry">Get Course Details</a>
+  <a class="btn btn-primary btn-sm" href="#enquiry">Get Course Details</a>
 </div>
-
-<a class="to-top" href="#top" id="toTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
-</a>
 
 <script src="js/course-config.js"></script>
 <script src="js/main.js"></script>

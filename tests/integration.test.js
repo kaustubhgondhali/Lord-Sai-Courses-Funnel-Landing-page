@@ -3,9 +3,7 @@
    Run:  npm install jsdom && node tests/integration.test.js                  */
 
 const path = require("path");
-const { JSDOM, VirtualConsole } = require(
-  "/tmp/claude-0/-home-claude/8876d85a-7b90-5b54-bab7-ef4cce25fef5/scratchpad/node_modules/jsdom"
-);
+const { JSDOM, VirtualConsole } = require("jsdom");
 
 const ROOT = path.resolve(__dirname, "..");
 let pass = 0, fail = 0, consoleErrors = [];
@@ -53,9 +51,10 @@ async function boot(patch) {
   let dom = await boot();
   let w = dom.window, d = w.document, $ = s => d.querySelector(s), $$ = s => [...d.querySelectorAll(s)];
 
-  check("hero headline present", /Want to .*Understand the Share Market/s.test($("h1").textContent), $("h1").textContent.slice(0,60));
-  check("cyan highlight wraps the key phrase", $("h1 .hl").textContent === "Understand the Share Market", $("h1 .hl") && $("h1 .hl").textContent);
+  check("hero headline present", /Extra Income From the Share Market\? Learn the Skill/.test($("h1").textContent), $("h1").textContent.slice(0,60));
+  check("cyan highlight wraps the key phrase", $("h1 .hl").textContent === "Extra Income", $("h1 .hl") && $("h1 .hl").textContent);
   check("brand badge shown", /Lord Sai Share Market Academy/.test($(".brand-badge").textContent));
+  check("hero quick facts come from config", !$("#heroFacts").hidden && /Beginner to Intermediate/.test($("#heroFacts").textContent) && /Marathi and English/.test($("#heroFacts").textContent));
   check("6 problem cards", $$("#problems .card").length === 6, $$("#problems .card").length);
   check("6 consequences listed", $$(".consequence-list li").length === 6, $$(".consequence-list li").length);
   check("transition quote present", /not a shortcut to profits/.test($(".transition-quote").textContent));
@@ -76,7 +75,7 @@ async function boot(patch) {
   check("6 modules rendered from config", $$(".module").length === 6, $$(".module").length);
   check("module numbering starts at 01", $(".mod-n").textContent === "01", $(".mod-n").textContent);
   check("first module titled from config", /Basics of Share Market/.test($(".mod-title").textContent));
-  check("module bodies start collapsed", $$(".mod-a").every(p => p.hidden));
+  check("module descriptions shown without clicking", $$(".module p").length === 6 && $$(".module p").every(p => p.textContent.trim() !== ""));
   check("only included features render", $$("#featureList li").length === 3, $$("#featureList li").length);
   check("un-included feature absent", !/certificate/i.test($("#featureList").textContent));
   check("features section visible (3 are included)", !$("#features").hidden);
@@ -92,32 +91,28 @@ async function boot(patch) {
 
   console.log("\n[5] WhatsApp controls hidden when no number is set");
   check("no WhatsApp buttons visible", $$(".js-wa").every(e => e.hidden), $$(".js-wa").filter(e => !e.hidden).length);
-  check("hero shows the in-page fallback CTA instead", !$(".js-wa-alt").hidden && $(".js-wa-alt").getAttribute("href") === "#enquiry");
+  check("hero's main CTA goes to the enquiry form", $(".hero .btn-primary").getAttribute("href") === "#enquiry");
   check("WhatsApp contact-method radio hidden", $(".js-wa-radio").hidden);
   check("footer says contact details not published", !$("#fcNone").hidden);
   check("policy links hidden", $("#footPolicy").hidden);
-  check("review banner shows for the owner locally", !$("#reviewBanner").hidden);
-  check("banner flags the missing enquiry destination", /No enquiry destination/.test($("#reviewList").textContent));
+  check("no review banner on the page", !$("#reviewBanner"));
 
-  console.log("\n[6] Accordions");
-  const m1 = $$(".mod-q")[0], m2 = $$(".mod-q")[1];
-  m1.click();
-  check("module opens on click", m1.getAttribute("aria-expanded") === "true" && !$("#mod1").hidden);
-  m2.click();
-  check("opening another closes the first", $("#mod1").hidden && !$("#mod2").hidden);
-  m2.click();
-  check("clicking again collapses", m2.getAttribute("aria-expanded") === "false");
-  const f1 = $$(".faq-q")[0];
-  f1.click();
-  check("FAQ opens independently", f1.getAttribute("aria-expanded") === "true");
+  console.log("\n[6] FAQ accordion");
+  const q1 = $$(".faq-q")[0], q2 = $$(".faq-q")[1];
+  q1.click();
+  check("FAQ opens on click", q1.getAttribute("aria-expanded") === "true" && !$("#faq1").hidden);
+  q2.click();
+  check("opening another closes the first", $("#faq1").hidden && !$("#faq2").hidden);
+  q2.click();
+  check("clicking again collapses", q2.getAttribute("aria-expanded") === "false");
 
-  console.log("\n[7] Navigation links all resolve");
+  console.log("\n[7] Funnel links all resolve");
   const ids = new Set($$("[id]").map(e => e.id));
   const dead = $$('a[href^="#"]').map(a => a.getAttribute("href").slice(1)).filter(h => h && !ids.has(h));
   check("no dead in-page links", dead.length === 0, dead);
-  check("nav toggle wired", $("#navToggle").getAttribute("aria-expanded") === "false");
-  $("#navToggle").click();
-  check("menu opens", $("#primaryNav").classList.contains("is-open") && $("#navToggle").getAttribute("aria-label") === "Close navigation menu");
+  check("no site navigation menu", !$("#primaryNav") && !$("#navToggle"));
+  check("header CTA goes to the enquiry form", $(".header-cta").getAttribute("href") === "#enquiry");
+  check("sticky bar CTA goes to the enquiry form", $("#stickyCta a").getAttribute("href") === "#enquiry");
 
   console.log("\n[8] Form validation");
   const form = $("#enquiryForm"), status = $("#formStatus");
@@ -160,7 +155,7 @@ async function boot(patch) {
   let opened = null;
   w.open = u => { opened = u; return { focus(){} }; };
   check("WhatsApp buttons appear", $$(".js-wa").filter(e => !e.hidden).length >= 3, $$(".js-wa").filter(e => !e.hidden).length);
-  check("hero fallback CTA now hidden", $(".js-wa-alt").hidden);
+  check("hero WhatsApp button appears", !$(".hero .js-wa").hidden);
   check("WhatsApp radio appears", !$(".js-wa-radio").hidden);
   check("header WhatsApp link points at wa.me", $(".header-wa").href.startsWith("https://wa.me/919876543210"), $(".header-wa").href.slice(0,40));
   check("submit button relabelled for WhatsApp", /WhatsApp/.test($("#submitBtn .btn-label").textContent), $("#submitBtn .btn-label").textContent);
@@ -194,7 +189,7 @@ async function boot(patch) {
   check("HTTP 200 → success shown", /submitted successfully/.test($("#formStatus").textContent));
   check("form cleared after genuine success", $("#fName").value === "");
 
-  console.log("\n[10] Fully configured — facts appear, FAQs stop deferring, banner clears");
+  console.log("\n[10] Fully configured — facts appear, FAQs stop deferring");
   dom.window.close();
   dom = await boot({
     enquiryEndpoint: "/api/enquiry", whatsappNumber: "919876543210",
@@ -211,8 +206,6 @@ async function boot(patch) {
   check("duration FAQ now states it", /runs for 8 weeks/.test($("#faqList").textContent));
   check("contact details render", !$("#fcPhone").hidden && !$("#fcEmail").hidden && $("#fcNone").hidden);
   check("policy links render", !$("#footPolicy").hidden && !$("#footPrivacy").hidden);
-  check("banner no longer flags enquiry destination", !/No enquiry destination/.test($("#reviewList").textContent));
-  check("banner still asks to verify the syllabus", /Confirm the curriculum/.test($("#reviewList").textContent));
 
   console.log("\n[11] Console cleanliness");
   const real = consoleErrors.filter(e => !/Could not parse CSS|Not implemented|fonts\.googleapis|css/i.test(e));

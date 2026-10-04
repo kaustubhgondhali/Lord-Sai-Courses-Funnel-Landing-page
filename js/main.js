@@ -1,6 +1,6 @@
 /* =============================================================================
    Lord Sai Share Market Academy — Course Landing Page Funnel
-   main.js — config-driven content, navigation, accordions, enquiry form.
+   main.js — config-driven content, FAQ accordion, sticky bar, enquiry form.
 
    No framework, no build step, no dependencies.
 
@@ -92,6 +92,23 @@
     if (note) note.hidden = set(C.duration) && set(C.fee) && set(C.batchNote);
   }
 
+  /* Hero quick facts — level, languages and location, only when configured */
+  var HERO_FACT_ICONS = {
+    level:     '<path d="M4 20h16"/><path d="M7 16v-3M12 16V9M17 16V5"/>',
+    languages: '<path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/>',
+    location:  '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>'
+  };
+
+  function renderHeroFacts() {
+    var wrap = $("#heroFacts");
+    if (!wrap) return;
+    var keys = ["level", "languages", "location"].filter(function (k) { return set(C[k]); });
+    wrap.innerHTML = keys.map(function (k) {
+      return '<li><svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + HERO_FACT_ICONS[k] + '</svg>' + esc(C[k]) + '</li>';
+    }).join("");
+    wrap.hidden = keys.length === 0;
+  }
+
   /* ===========================================================================
      3. CURRICULUM
      ======================================================================== */
@@ -110,24 +127,20 @@
     var list = Array.isArray(CFG.curriculum) ? CFG.curriculum : [];
     if (!list.length) { var s = $("#curriculum"); if (s) s.hidden = true; return; }
 
+    /* Every module is shown as an open card — nothing to click to read it */
     wrap.innerHTML = list.map(function (m, i) {
-      var n = i + 1, id = "mod" + n;
+      var n = i + 1;
       var icon = ICONS[m.icon] || ICONS.book;
       return '' +
-        '<div class="module">' +
-          '<h3><button type="button" class="mod-q" aria-expanded="false" aria-controls="' + id + '" id="q' + id + '">' +
+        '<article class="module">' +
+          '<div class="mod-top">' +
             '<span class="mod-n">' + (n < 10 ? "0" + n : n) + '</span>' +
             '<span class="mod-ico"><svg viewBox="0 0 24 24" aria-hidden="true">' + icon + '</svg></span>' +
-            '<span class="mod-title">' + esc(m.title || ("Module " + n)) + '</span>' +
-            '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
-          '</button></h3>' +
-          '<div class="mod-a" id="' + id + '" role="region" aria-labelledby="q' + id + '" hidden>' +
-            '<p>' + esc(m.description || "") + '</p>' +
           '</div>' +
-        '</div>';
+          '<h3 class="mod-title">' + esc(m.title || ("Module " + n)) + '</h3>' +
+          '<p>' + esc(m.description || "") + '</p>' +
+        '</article>';
     }).join("");
-
-    bindAccordion($$(".mod-q", wrap));
   }
 
   /* ===========================================================================
@@ -241,7 +254,7 @@
   }
 
   /* ===========================================================================
-     6. ACCORDION (shared by curriculum and FAQs) — keyboard friendly
+     6. ACCORDION (FAQs) — keyboard friendly
      ======================================================================== */
   function bindAccordion(buttons) {
     buttons.forEach(function (btn, idx) {
@@ -342,53 +355,22 @@
   }
 
   /* ===========================================================================
-     9. NAVIGATION + SCROLL
+     9. SCROLL — header shadow and the sticky enquiry bar
      ======================================================================== */
-  var nav = $("#primaryNav"), navToggle = $("#navToggle"), header = $("#siteHeader");
-
-  function setNav(open) {
-    if (!nav || !navToggle) return;
-    nav.classList.toggle("is-open", open);
-    navToggle.setAttribute("aria-expanded", String(open));
-    navToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
-  }
-
-  function bindNav() {
-    if (navToggle) {
-      navToggle.addEventListener("click", function () {
-        setNav(navToggle.getAttribute("aria-expanded") !== "true");
-      });
-    }
-    $$("#primaryNav a").forEach(function (a) { a.addEventListener("click", function () { setNav(false); }); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setNav(false); });
-    window.addEventListener("resize", function () { if (window.innerWidth > 900) setNav(false); });
-  }
-
   function bindScroll() {
-    var fill = $("#phaseRailFill"), chips = $$(".phase-chip"), toTop = $("#toTop");
-    var sections = $$("section[data-phase]"), links = $$(".primary-nav > a");
+    var header = $("#siteHeader"), sticky = $("#stickyCta"), enq = $("#enquiry");
     var ticking = false;
 
     function update() {
       ticking = false;
       var y = window.scrollY || window.pageYOffset;
       if (header) header.classList.toggle("is-stuck", y > 8);
-      if (toTop) toTop.classList.toggle("is-visible", y > 700);
-      var sticky = $("#stickyCta"), enq = $("#enquiry");
       if (sticky) {
+        /* Shown once past the hero, hidden while the form itself is on screen */
         var er = enq ? enq.getBoundingClientRect() : null;
         var inForm = er && er.top < window.innerHeight && er.bottom > 0;
         sticky.classList.toggle("is-visible", y > 600 && !inForm);
       }
-      var docH = document.documentElement.scrollHeight - window.innerHeight;
-      if (fill) fill.style.width = (docH > 0 ? Math.min(100, (y / docH) * 100) : 0) + "%";
-
-      var probe = y + window.innerHeight * 0.35, phase = "1", id = null;
-      sections.forEach(function (s) {
-        if (!s.hidden && s.offsetTop <= probe) { phase = s.getAttribute("data-phase"); id = s.id; }
-      });
-      chips.forEach(function (c) { c.classList.toggle("is-active", c.getAttribute("data-phase") === phase); });
-      links.forEach(function (a) { a.classList.toggle("is-current", id && a.getAttribute("href") === "#" + id); });
     }
     window.addEventListener("scroll", function () {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
@@ -568,13 +550,13 @@
   function init() {
     applyWhatsApp();
     renderFacts();
+    renderHeroFacts();
     renderCurriculum();
     renderFeatures();
     renderProof();
     renderFaqs();
     renderContact();
     renderReviewBanner();
-    bindNav();
     bindScroll();
     bindForm();
   }
