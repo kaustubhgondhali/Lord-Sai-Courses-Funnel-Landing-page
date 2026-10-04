@@ -16,12 +16,50 @@
 
   var $  = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var set = function (v) { return typeof v === "string" && v.trim() !== ""; };
   var esc = function (s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c];
     });
   };
+
+  /* ===========================================================================
+     0. LANGUAGE — English, Marathi, Hindi. Page text lives in i18n.js; config
+        values may be a string or { en, mr, hi }. Missing text falls back to
+        English.
+     ======================================================================== */
+  var I18N  = window.LS_I18N || {};
+  var LANGS = ["en", "mr", "hi"];
+  var lang  = "en";
+
+  function tr(v, l) {
+    if (v && typeof v === "object") return v[l || lang] || v.en || "";
+    return typeof v === "string" ? v : "";
+  }
+  var set = function (v) { return tr(v).trim() !== ""; };
+
+  function t(key, vars) {
+    var s = (I18N[lang] && I18N[lang][key]) || (I18N.en && I18N.en[key]) || key;
+    return vars ? s.replace(/\{(\w+)\}/g, function (m, k) { return k in vars ? vars[k] : m; }) : s;
+  }
+  /* English config values read mid-sentence in lower case; Devanagari has no case */
+  function midSentence(s) { return lang === "en" ? s.toLowerCase() : s; }
+
+  function initialLang() {
+    var q = (location.search.match(/[?&]lang=(\w+)/) || [])[1];
+    if (LANGS.indexOf(q) > -1) return q;
+    try { var saved = localStorage.getItem("ls-lang"); if (LANGS.indexOf(saved) > -1) return saved; } catch (e) {}
+    return "en";
+  }
+
+  function applyStaticText() {
+    $$("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
+    $$("[data-i18n-html]").forEach(function (el) { el.innerHTML = t(el.getAttribute("data-i18n-html")); });
+    $$("[data-i18n-ph]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-ph"))); });
+    $$("[data-i18n-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria"))); });
+    document.title = t("meta.title");
+    var desc = $('meta[name="description"]');
+    if (desc) desc.setAttribute("content", t("meta.desc"));
+  }
 
   function hasWhatsApp() { return /^\d{8,15}$/.test(String(CFG.whatsappNumber || "").trim()); }
   function hasEndpoint() { return set(CFG.enquiryEndpoint); }
@@ -39,9 +77,8 @@
     $$(".js-wa").forEach(function (el) {
       el.hidden = !on;
       if (on && el.tagName === "A") {
-        el.href = waLink("Hello, I would like to know more about the " +
-                         (C.name || "Share Market") + " course at " +
-                         (C.academy || "Lord Sai Share Market Academy") + ".");
+        el.href = waLink(t("wa.hello", { course: tr(C.name) || "Share Market",
+                                         academy: tr(C.academy) || "Lord Sai Share Market Academy" }));
         el.target = "_blank";
         el.rel = "noopener";
       }
@@ -64,15 +101,15 @@
      2. COURSE FACTS — one tile per confirmed value; blanks are skipped
      ======================================================================== */
   var FACT_ROWS = [
-    ["Course",    "name"],
-    ["Academy",   "academy"],
-    ["Location",  "location"],
-    ["Level",     "level"],
-    ["Languages", "languages"],
-    ["Mode",      "mode"],
-    ["Duration",  "duration"],
-    ["Fee",       "fee"],
-    ["Batches",   "batchNote"]
+    ["fact.course",    "name"],
+    ["fact.academy",   "academy"],
+    ["fact.location",  "location"],
+    ["fact.level",     "level"],
+    ["fact.languages", "languages"],
+    ["fact.mode",      "mode"],
+    ["fact.duration",  "duration"],
+    ["fact.fee",       "fee"],
+    ["fact.batches",   "batchNote"]
   ];
 
   function renderFacts() {
@@ -82,7 +119,7 @@
     FACT_ROWS.forEach(function (row) {
       if (!set(C[row[1]])) return;
       shown++;
-      html += '<div><dt>' + esc(row[0]) + '</dt><dd>' + esc(C[row[1]]) + '</dd></div>';
+      html += '<div><dt>' + esc(t(row[0])) + '</dt><dd>' + esc(tr(C[row[1]])) + '</dd></div>';
     });
     wrap.innerHTML = html;
     wrap.hidden = shown === 0;
@@ -104,7 +141,7 @@
     if (!wrap) return;
     var keys = ["level", "languages", "location"].filter(function (k) { return set(C[k]); });
     wrap.innerHTML = keys.map(function (k) {
-      return '<li><svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + HERO_FACT_ICONS[k] + '</svg>' + esc(C[k]) + '</li>';
+      return '<li><svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + HERO_FACT_ICONS[k] + '</svg>' + esc(tr(C[k])) + '</li>';
     }).join("");
     wrap.hidden = keys.length === 0;
   }
@@ -137,8 +174,8 @@
             '<span class="mod-n">' + (n < 10 ? "0" + n : n) + '</span>' +
             '<span class="mod-ico"><svg viewBox="0 0 24 24" aria-hidden="true">' + icon + '</svg></span>' +
           '</div>' +
-          '<h3 class="mod-title">' + esc(m.title || ("Module " + n)) + '</h3>' +
-          '<p>' + esc(m.description || "") + '</p>' +
+          '<h3 class="mod-title">' + esc(tr(m.title) || ("Module " + n)) + '</h3>' +
+          '<p>' + esc(tr(m.description)) + '</p>' +
         '</article>';
     }).join("");
   }
@@ -153,7 +190,7 @@
     if (!items.length) { section.hidden = true; return; }
     section.hidden = false;
     wrap.innerHTML = items.map(function (f) {
-      return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>' + esc(f.label) + '</span></li>';
+      return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>' + esc(tr(f.label)) + '</span></li>';
     }).join("");
   }
 
@@ -166,17 +203,17 @@
     var P = CFG.proof || {};
     var stats = (P.stats || []).filter(function (x) { return x && set(x.value) && set(x.label); });
     var quotes = (P.testimonials || []).filter(function (x) { return x && set(x.quote) && set(x.name); });
-    var trainer = set(P.trainerNote) ? P.trainerNote : "";
+    var trainer = tr(P.trainerNote);
     if (!stats.length && !quotes.length && !trainer) { section.hidden = true; return; }
     section.hidden = false;
     $("#proofStats").innerHTML = stats.map(function (x) {
-      return '<li><b>' + esc(x.value) + '</b><span>' + esc(x.label) + '</span></li>';
+      return '<li><b>' + esc(tr(x.value)) + '</b><span>' + esc(tr(x.label)) + '</span></li>';
     }).join("");
-    var t = $("#proofTrainer");
-    if (t) { t.textContent = trainer; t.hidden = !trainer; }
+    var trainerEl = $("#proofTrainer");
+    if (trainerEl) { trainerEl.textContent = trainer; trainerEl.hidden = !trainer; }
     $("#proofQuotes").innerHTML = quotes.map(function (x) {
-      return '<figure class="proof-quote"><blockquote>' + esc(x.quote) + '</blockquote><figcaption>' +
-        esc(x.name) + (set(x.detail) ? ' — ' + esc(x.detail) : '') + '</figcaption></figure>';
+      return '<figure class="proof-quote"><blockquote>' + esc(tr(x.quote)) + '</blockquote><figcaption>' +
+        esc(tr(x.name)) + (set(x.detail) ? ' — ' + esc(tr(x.detail)) : '') + '</figcaption></figure>';
     }).join("");
   }
 
@@ -184,55 +221,27 @@
      5. FAQs — answers follow config; unconfirmed facts defer to the form
      ======================================================================== */
   function faqData() {
-    var enquire = 'Please <a href="#enquiry">send an enquiry</a> and we will confirm the current position directly.';
-    var langs   = set(C.languages) ? esc(C.languages) : null;
-    var mode    = set(C.mode) ? esc(C.mode).toLowerCase() : null;
-    var hasCert = (CFG.features || []).some(function (f) { return f.id === "certificate" && f.included; });
-    var hasMats = (CFG.features || []).some(function (f) { return (f.id === "handouts" || f.id === "portal") && f.included; });
+    var ask     = { enquire: t("faq.enquire") };
+    var has     = function (id) { return (CFG.features || []).some(function (f) { return f.id === id && f.included; }); };
+    var topics  = (CFG.curriculum || []).map(function (m) { return midSentence(esc(tr(m.title))); }).join(", ");
 
     return [
-      ["Who can join the Share Market Course?",
-       "The course is open to anyone who wants to understand how the share market works — whether you have never placed a trade or have some experience and want a more structured foundation." +
-       (set(C.level) ? " It is pitched at " + esc(C.level).toLowerCase() + " learners." : "")],
-
-      ["Is the course suitable for beginners?",
-       "Yes. It starts with market fundamentals and terminology before moving on to charts, analysis and risk management, so no prior background is assumed."],
-
-      ["What topics are covered in the course?",
-       "The curriculum covers " + ((CFG.curriculum || []).map(function (m) { return esc(m.title).toLowerCase(); }).join(", ") || "market fundamentals, analysis and risk management") + ". Each module is listed in full in the curriculum section above."],
-
-      ["Will I learn technical analysis?",
-       "Yes. Technical analysis covers candlestick charts, price patterns, trends and commonly used indicators — including what each indicator does and does not tell you."],
-
-      ["Does the course cover fundamental analysis?",
-       "Yes. Fundamental analysis covers company financial information, sector context and valuation concepts, so you can compare it against the technical approach rather than treating either as the whole picture."],
-
-      ["Will risk management be included?",
-       "Yes, and it is treated as core rather than optional. The module covers stop-losses, position sizing, risk–reward ratios and the trading psychology that affects whether people actually stick to their own rules."],
-
-      ["Does the course include practical market observation?",
-       (CFG.features || []).some(function (f) { return f.id === "liveMarket" && f.included; })
-         ? "Yes. Live market observation is part of the programme, alongside reviewing analysis afterwards so decisions can be examined rather than just made. Practical work is educational — it does not remove market risk."
-         : "Practical market work is part of the learning approach. For exactly what is included in the current batch, " + enquire],
-
-      ["What is the course duration?",
-       set(C.duration) ? "The course runs for " + esc(C.duration) + "." : "Duration can vary between batches, so rather than publish a figure that may be out of date — " + enquire],
-
-      ["What is the course fee?",
-       set(C.fee) ? "The course fee is " + esc(C.fee) + "." : "Fees are confirmed at the time of admission. " + enquire],
-
-      ["Which languages are used for teaching?",
-       langs ? "Teaching is conducted in " + langs + "." : "For current teaching languages, " + enquire],
-
-      ["Are learning materials provided?",
-       hasMats ? "Yes — see the included list above for exactly what comes with the course." : "Materials can vary by batch. " + enquire],
-
-      ["Is a certificate provided?",
-       hasCert ? "Yes, a course completion certificate is issued, subject to the completion requirements explained during the course." : "For the current position on certification, " + enquire],
-
-      ["How can I enquire about the next batch?",
-       "Use the <a href=\"#enquiry\">enquiry form</a> on this page" + (hasWhatsApp() ? ", or message us on WhatsApp" : "") + ". Share your name, number and preferred contact method, and we will get back to you with batch details." +
-       (set(C.mode) && mode ? " Training is delivered through " + mode + "." : "")]
+      [t("faq.whoQ"), t("faq.whoA") + (set(C.level) ? t("faq.whoLevel", { level: midSentence(esc(tr(C.level))) }) : "")],
+      [t("faq.beginnersQ"), t("faq.beginnersA")],
+      [t("faq.topicsQ"), t("faq.topicsA", { topics: topics || t("faq.topicsFallback") })],
+      [t("faq.taQ"), t("faq.taA")],
+      [t("faq.faQ"), t("faq.faA")],
+      [t("faq.riskQ"), t("faq.riskA")],
+      [t("faq.practicalQ"), has("liveMarket") ? t("faq.practicalYes") : t("faq.practicalAsk", ask)],
+      [t("faq.durationQ"), set(C.duration) ? t("faq.durationSet", { duration: esc(tr(C.duration)) }) : t("faq.durationAsk", ask)],
+      [t("faq.feeQ"), set(C.fee) ? t("faq.feeSet", { fee: esc(tr(C.fee)) }) : t("faq.feeAsk", ask)],
+      [t("faq.langsQ"), set(C.languages) ? t("faq.langsSet", { langs: esc(tr(C.languages)) }) : t("faq.langsAsk", ask)],
+      [t("faq.materialsQ"), has("handouts") || has("portal") ? t("faq.materialsYes") : t("faq.materialsAsk", ask)],
+      [t("faq.certQ"), has("certificate") ? t("faq.certYes") : t("faq.certAsk", ask)],
+      [t("faq.nextQ"), t("faq.nextA", {
+        wa:   hasWhatsApp() ? t("faq.nextWa") : "",
+        mode: set(C.mode) ? t("faq.nextMode", { mode: midSentence(esc(tr(C.mode))) }) : ""
+      })]
     ];
   }
 
@@ -319,8 +328,8 @@
     });
 
     var cr = $("#copyright");
-    if (cr) cr.textContent = "© " + new Date().getFullYear() + " " +
-      (C.academy || "Lord Sai Investment & Share Market Academy") + ". All rights reserved.";
+    if (cr) cr.textContent = t("foot.copy", { year: new Date().getFullYear(),
+      academy: tr(C.academy) || "Lord Sai Investment & Share Market Academy" });
   }
 
   /* ===========================================================================
@@ -388,17 +397,23 @@
      • On any failure the typed values stay in the form.
      ======================================================================== */
   var form = $("#enquiryForm"), submitBtn = $("#submitBtn"), statusBox = $("#formStatus"), busy = false;
+  var lastStatus = null;
 
-  function showStatus(kind, msg) {
+  /* Status and error text are stored as keys, so a language switch re-translates them */
+  function showStatus(kind, key, vars) {
     if (!statusBox) return;
+    lastStatus = { kind: kind, key: key, vars: vars };
     statusBox.hidden = false;
     statusBox.className = "form-status is-" + kind;
-    statusBox.textContent = msg;
+    statusBox.textContent = t(key, vars);
   }
-  function fieldErr(input, errId, msg) {
+  function refreshStatus() {
+    if (lastStatus && statusBox && !statusBox.hidden) showStatus(lastStatus.kind, lastStatus.key, lastStatus.vars);
+  }
+  function fieldErr(input, errId, key) {
     var e = document.getElementById(errId);
     if (input) input.setAttribute("aria-invalid", "true");
-    if (e) { if (msg) e.textContent = msg; e.hidden = false; }
+    if (e) { e.setAttribute("data-i18n", key); e.textContent = t(key); e.hidden = false; }
   }
   function clearErr(input, errId) {
     var e = document.getElementById(errId);
@@ -416,22 +431,22 @@
     clearErr(null, "eMethod");
 
     if (!name.value.trim() || name.value.trim().length < 2) {
-      fieldErr(name, "eName", "Please enter your full name."); ok = false; first = first || name;
+      fieldErr(name, "eName", "err.name"); ok = false; first = first || name;
     }
     var digits = mobile.value.replace(/\D/g, "");
     var mobileOk = code.value === "+91" ? /^[6-9]\d{9}$/.test(digits) : /^\d{6,14}$/.test(digits);
-    if (!mobileOk) { fieldErr(mobile, "eMobile", "Please enter a valid mobile number."); ok = false; first = first || mobile; }
+    if (!mobileOk) { fieldErr(mobile, "eMobile", "err.mobile"); ok = false; first = first || mobile; }
 
     if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
-      fieldErr(email, "eEmail", "Please enter a valid email address, or leave this blank."); ok = false; first = first || email;
+      fieldErr(email, "eEmail", "err.email"); ok = false; first = first || email;
     }
     if (!method) {
-      fieldErr(null, "eMethod", "Please choose how you would like to be contacted."); ok = false;
+      fieldErr(null, "eMethod", "err.method"); ok = false;
     } else if (method.value === "email" && !email.value.trim()) {
-      fieldErr(email, "eEmail", "Please enter your email address to be contacted by email."); ok = false; first = first || email;
+      fieldErr(email, "eEmail", "err.emailNeeded"); ok = false; first = first || email;
     }
     if (!consent.checked) {
-      fieldErr(consent, "eConsent", "Please tick the consent box so we are permitted to contact you."); ok = false; first = first || consent;
+      fieldErr(consent, "eConsent", "err.consent"); ok = false; first = first || consent;
     }
     if (first) { try { first.focus(); } catch (e) {} }
     return ok;
@@ -439,7 +454,7 @@
 
   function collect() {
     var m = $("input[name='contactMethod']:checked");
-    var exp = $("#fExperience"), lang = $("#fLanguage");
+    var exp = $("#fExperience"), langSel = $("#fLanguage");
     return {
       name: $("#fName").value.trim(),
       countryCode: $("#fCode").value,
@@ -449,23 +464,24 @@
       contactMethodLabel: m ? $("span", m.parentElement).textContent : "",
       experience: exp.value,
       experienceLabel: exp.value ? exp.options[exp.selectedIndex].text : "",
-      preferredLanguage: lang.value,
-      preferredLanguageLabel: lang.value ? lang.options[lang.selectedIndex].text : "",
+      preferredLanguage: langSel.value,
+      preferredLanguageLabel: langSel.value ? langSel.options[langSel.selectedIndex].text : "",
       message: $("#fMessage").value.trim(),
       consent: $("#fConsent").checked,
-      course: C.name || "",
+      course: tr(C.name, "en"),
+      pageLanguage: lang,
       pageUrl: window.location.href,
       submittedAt: new Date().toISOString()
     };
   }
 
   function waText(d) {
-    var L = ["Share Market Course Enquiry", "", "Name: " + d.name, "Mobile: " + d.countryCode + " " + d.mobile];
-    if (d.email) L.push("Email: " + d.email);
-    if (d.experienceLabel) L.push("Experience: " + d.experienceLabel);
-    if (d.preferredLanguageLabel) L.push("Preferred language: " + d.preferredLanguageLabel);
-    L.push("Preferred contact: " + d.contactMethodLabel);
-    if (d.message) L.push("", "Message: " + d.message);
+    var L = [t("wa.title"), "", t("wa.name") + ": " + d.name, t("wa.mobile") + ": " + d.countryCode + " " + d.mobile];
+    if (d.email) L.push(t("wa.email") + ": " + d.email);
+    if (d.experienceLabel) L.push(t("wa.exp") + ": " + d.experienceLabel);
+    if (d.preferredLanguageLabel) L.push(t("wa.lang") + ": " + d.preferredLanguageLabel);
+    L.push(t("wa.contact") + ": " + d.contactMethodLabel);
+    if (d.message) L.push("", t("wa.message") + ": " + d.message);
     return L.join("\n");
   }
 
@@ -476,15 +492,16 @@
     submitBtn.disabled = on;
   }
 
+  /* Label the button for what it will actually do */
+  function labelSubmit() {
+    var label = $(".btn-label", submitBtn), hint = $("#waHint");
+    var waOnly = !hasEndpoint() && hasWhatsApp();
+    if (label) label.textContent = t(waOnly ? "form.submitWa" : "form.submit");
+    if (hint) hint.hidden = !waOnly;
+  }
+
   function bindForm() {
     if (!form) return;
-
-    /* Label the button for what it will actually do */
-    var label = $(".btn-label", submitBtn), hint = $("#waHint");
-    if (!hasEndpoint() && hasWhatsApp()) {
-      if (label) label.textContent = "Send Enquiry on WhatsApp";
-      if (hint) hint.hidden = false;
-    }
 
     [["fName","eName"],["fMobile","eMobile"],["fEmail","eEmail"],["fConsent","eConsent"]].forEach(function (p) {
       var el = document.getElementById(p[0]);
@@ -497,13 +514,13 @@
       if (busy) return;                        /* blocks accidental double submit */
       if (statusBox) statusBox.hidden = true;
 
-      if (!validate()) { showStatus("error", "Please correct the highlighted fields."); return; }
+      if (!validate()) { showStatus("error", "status.fix"); return; }
       var data = collect();
 
       /* Path A — a real backend is configured */
       if (hasEndpoint()) {
         setBusy(true);
-        showStatus("pending", "Sending your enquiry…");
+        showStatus("pending", "status.sending");
         var headers = { "Content-Type": "application/json" };
         Object.keys(CFG.enquiryHeaders || {}).forEach(function (k) { headers[k] = CFG.enquiryHeaders[k]; });
 
@@ -511,18 +528,17 @@
           .then(function (res) {
             setBusy(false);
             if (res.ok) {
-              showStatus("success", "Thank you for your interest in " + (C.academy || "Lord Sai Share Market Academy") +
-                ". Your enquiry has been submitted successfully. Our team will contact you using your selected contact method.");
+              showStatus("success", "status.success", { academy: tr(C.academy) || "Lord Sai Share Market Academy" });
               form.reset();
               $$("[aria-invalid]").forEach(function (el) { el.removeAttribute("aria-invalid"); });
               applyWhatsApp();
             } else {
-              showStatus("error", "Your enquiry could not be submitted. Your details have been kept in the form — please try again.");
+              showStatus("error", "status.httpError");
             }
           })
           .catch(function () {
             setBusy(false);
-            showStatus("error", "We could not reach the server. Please check your connection and try again. Your details have been kept in the form.");
+            showStatus("error", "status.network");
           });
         return;
       }
@@ -530,13 +546,13 @@
       /* Path B — no backend, WhatsApp available */
       if (hasWhatsApp()) {
         var win = window.open(waLink(waText(data)), "_blank", "noopener");
-        if (win) showStatus("info", "WhatsApp has been opened with your details. Your enquiry reaches us once you press send inside WhatsApp.");
-        else showStatus("error", "WhatsApp could not be opened — your browser may have blocked it. Please allow pop-ups and try again.");
+        if (win) showStatus("info", "status.waOpened");
+        else showStatus("error", "status.waBlocked");
         return;
       }
 
       /* Path C — nothing configured */
-      showStatus("info", "This form is not connected to an enquiry destination yet, so your details were not sent anywhere. Nothing has been submitted or stored.");
+      showStatus("info", "status.notConnected");
       if (window.console && console.warn) {
         console.warn("[Lord Sai Course] No enquiry destination configured. Set LS_COURSE.enquiryEndpoint " +
                      "and/or LS_COURSE.whatsappNumber in js/course-config.js. Nothing was sent or stored.");
@@ -545,9 +561,16 @@
   }
 
   /* ===========================================================================
-     11. BOOT
+     11. LANGUAGE SWITCH + BOOT
      ======================================================================== */
-  function init() {
+  function setLang(next, remember) {
+    lang = LANGS.indexOf(next) > -1 ? next : "en";
+    document.documentElement.lang = lang;
+    if (remember) { try { localStorage.setItem("ls-lang", lang); } catch (e) {} }
+    var sel = $("#langSelect");
+    if (sel) sel.value = lang;
+
+    applyStaticText();
     applyWhatsApp();
     renderFacts();
     renderHeroFacts();
@@ -556,7 +579,15 @@
     renderProof();
     renderFaqs();
     renderContact();
+    labelSubmit();
+    refreshStatus();
+  }
+
+  function init() {
+    setLang(initialLang(), false);
     renderReviewBanner();
+    var sel = $("#langSelect");
+    if (sel) sel.addEventListener("change", function () { setLang(sel.value, true); });
     bindScroll();
     bindForm();
   }

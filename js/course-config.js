@@ -31,7 +31,9 @@ window.LS_COURSE = {
 
      Payload sent:
        { name, countryCode, mobile, email, contactMethod, experience,
-         preferredLanguage, message, consent, course, pageUrl, submittedAt }
+         preferredLanguage, message, consent, course, pageLanguage, pageUrl,
+         submittedAt }   (course is always the English name; pageLanguage is
+         the language the visitor was reading in: "en", "mr" or "hi")
 
      SECURITY: this file is public. Never put an API key or secret here.
 
@@ -71,18 +73,34 @@ window.LS_COURSE = {
      duration and fee are deliberately left blank — they were not supplied and
      must not be guessed. While blank, the page omits them and the matching FAQs
      invite the visitor to enquire.
+
+     LANGUAGES: any text here can be a plain string (shown in every language)
+     or { en: "…", mr: "…", hi: "…" } for English, Marathi and Hindi. A
+     missing translation falls back to English.
   --------------------------------------------------------------------------- */
   course: {
-    name:      "Share Market Education & Training",
-    academy:   "Lord Sai Share Market Academy",
-    location:  "Uran, Navi Mumbai, Maharashtra",
-    level:     "Beginner to Intermediate",
-    languages: "Marathi and English",
-    mode:      "Classroom training and live market observation",
+    name:      { en: "Share Market Education & Training",
+                 mr: "शेअर मार्केट शिक्षण व प्रशिक्षण",
+                 hi: "शेयर मार्केट शिक्षा और प्रशिक्षण" },
+    academy:   { en: "Lord Sai Share Market Academy",
+                 mr: "लॉर्ड साई शेअर मार्केट अकॅडमी",
+                 hi: "लॉर्ड साई शेयर मार्केट एकेडमी" },
+    location:  { en: "Uran, Navi Mumbai, Maharashtra",
+                 mr: "उरण, नवी मुंबई, महाराष्ट्र",
+                 hi: "उरण, नवी मुंबई, महाराष्ट्र" },
+    level:     { en: "Beginner to Intermediate",
+                 mr: "नवशिका ते मध्यम",
+                 hi: "शुरुआती से मध्यम" },
+    languages: { en: "Marathi and English",
+                 mr: "मराठी आणि इंग्रजी",
+                 hi: "मराठी और अंग्रेज़ी" },
+    mode:      { en: "Classroom training and live market observation",
+                 mr: "वर्गातील प्रशिक्षण आणि लाइव्ह मार्केट निरीक्षण",
+                 hi: "क्लासरूम ट्रेनिंग और लाइव मार्केट ऑब्ज़र्वेशन" },
 
-    duration:  "",           // e.g. "8 weeks" — CONFIRM BEFORE PUBLISHING
+    duration:  "",           // e.g. { en: "8 weeks", mr: "8 आठवडे", hi: "8 हफ़्ते" } — CONFIRM BEFORE PUBLISHING
     fee:       "",           // e.g. "₹12,000" — CONFIRM BEFORE PUBLISHING
-    batchNote: ""            // e.g. "New batches start monthly"
+    batchNote: ""            // e.g. { en: "New batches start monthly", mr: "…", hi: "…" }
   },
 
   /* ---------------------------------------------------------------------------
@@ -92,14 +110,22 @@ window.LS_COURSE = {
      Anything left false is not rendered. Do not switch one on to fill the grid.
   --------------------------------------------------------------------------- */
   features: [
-    { id: "examples",    label: "Practical market examples",        included: true  },
-    { id: "charts",      label: "Chart-analysis exercises",         included: true  },
-    { id: "liveMarket",  label: "Live market observation",          included: true  },
-    { id: "handouts",    label: "Learning handouts and PDFs",       included: false },
-    { id: "portal",      label: "Student portal access",            included: false },
-    { id: "journal",     label: "Trade-journal resources",          included: false },
-    { id: "whatsappQnA", label: "WhatsApp doubt support",           included: false },
-    { id: "certificate", label: "Course completion certificate",    included: false }
+    { id: "examples",    included: true,
+      label: { en: "Practical market examples", mr: "मार्केटची प्रत्यक्ष उदाहरणे", hi: "बाज़ार के व्यावहारिक उदाहरण" } },
+    { id: "charts",      included: true,
+      label: { en: "Chart-analysis exercises", mr: "चार्ट ॲनालिसिसचे सराव", hi: "चार्ट एनालिसिस अभ्यास" } },
+    { id: "liveMarket",  included: true,
+      label: { en: "Live market observation", mr: "लाइव्ह मार्केट निरीक्षण", hi: "लाइव मार्केट ऑब्ज़र्वेशन" } },
+    { id: "handouts",    included: false,
+      label: { en: "Learning handouts and PDFs", mr: "शिकण्याचे हँडआउट आणि PDF", hi: "पढ़ाई के हैंडआउट और PDF" } },
+    { id: "portal",      included: false,
+      label: { en: "Student portal access", mr: "स्टुडंट पोर्टलचा ॲक्सेस", hi: "स्टूडेंट पोर्टल एक्सेस" } },
+    { id: "journal",     included: false,
+      label: { en: "Trade-journal resources", mr: "ट्रेड-जर्नलसाठी साहित्य", hi: "ट्रेड-जर्नल संसाधन" } },
+    { id: "whatsappQnA", included: false,
+      label: { en: "WhatsApp doubt support", mr: "WhatsApp वर शंका निरसन", hi: "WhatsApp पर डाउट सपोर्ट" } },
+    { id: "certificate", included: false,
+      label: { en: "Course completion certificate", mr: "कोर्स पूर्णत्वाचे प्रमाणपत्र", hi: "कोर्स पूरा होने का सर्टिफ़िकेट" } }
   ],
 
 
@@ -109,6 +135,7 @@ window.LS_COURSE = {
        stats:        [{ value: "500+", label: "Learners trained" }]
        trainerNote:  "Taught by …, with … years of market experience."
        testimonials: [{ quote: "…", name: "Student name", detail: "Batch / city" }]
+     Text can also be { en: "…", mr: "…", hi: "…" }, as in the course facts.
   --------------------------------------------------------------------------- */
   proof: {
     stats: [],
@@ -126,33 +153,57 @@ window.LS_COURSE = {
   --------------------------------------------------------------------------- */
   curriculum: [
     {
-      title: "Basics of Share Market",
-      description: "How the share market works, who takes part in it, the instruments traded, and the terminology used day to day.",
+      title: { en: "Basics of Share Market", mr: "शेअर मार्केटची मूलतत्त्वे", hi: "शेयर बाज़ार की बुनियादी बातें" },
+      description: {
+        en: "How the share market works, who takes part in it, the instruments traded, and the terminology used day to day.",
+        mr: "शेअर मार्केट कसे चालते, त्यात कोण सहभागी होतात, कोणते इन्स्ट्रुमेंट्स ट्रेड होतात आणि रोजच्या वापरातील संज्ञा.",
+        hi: "शेयर बाज़ार कैसे काम करता है, उसमें कौन हिस्सा लेता है, कौन-से इंस्ट्रूमेंट्स ट्रेड होते हैं और रोज़ इस्तेमाल होने वाली शब्दावली।"
+      },
       icon: "book"
     },
     {
-      title: "Technical Analysis",
-      description: "Reading candlestick charts, recognising price patterns and trends, and understanding what common indicators do and do not tell you.",
+      title: { en: "Technical Analysis", mr: "टेक्निकल ॲनालिसिस", hi: "टेक्निकल एनालिसिस" },
+      description: {
+        en: "Reading candlestick charts, recognising price patterns and trends, and understanding what common indicators do and do not tell you.",
+        mr: "कँडलस्टिक चार्ट वाचणे, प्राइस पॅटर्न आणि ट्रेंड ओळखणे, आणि सामान्य इंडिकेटर काय सांगतात व काय सांगत नाहीत हे समजून घेणे.",
+        hi: "कैंडलस्टिक चार्ट पढ़ना, प्राइस पैटर्न और ट्रेंड पहचानना, और यह समझना कि आम इंडिकेटर क्या बताते हैं और क्या नहीं।"
+      },
       icon: "chart"
     },
     {
-      title: "Fundamental Analysis",
-      description: "Working through company financial information, sector context and valuation concepts.",
+      title: { en: "Fundamental Analysis", mr: "फंडामेंटल ॲनालिसिस", hi: "फंडामेंटल एनालिसिस" },
+      description: {
+        en: "Working through company financial information, sector context and valuation concepts.",
+        mr: "कंपनीची आर्थिक माहिती, सेक्टरचा संदर्भ आणि व्हॅल्युएशनच्या संकल्पनांचा अभ्यास.",
+        hi: "कंपनी की वित्तीय जानकारी, सेक्टर के संदर्भ और वैल्यूएशन की अवधारणाओं पर काम करना।"
+      },
       icon: "building"
     },
     {
-      title: "Trading Strategies",
-      description: "How intraday, swing and positional approaches differ in time horizon, effort and the risks each one carries.",
+      title: { en: "Trading Strategies", mr: "ट्रेडिंग स्ट्रॅटेजी", hi: "ट्रेडिंग स्ट्रैटेजी" },
+      description: {
+        en: "How intraday, swing and positional approaches differ in time horizon, effort and the risks each one carries.",
+        mr: "इंट्राडे, स्विंग आणि पोझिशनल पद्धती कालावधी, मेहनत आणि प्रत्येकातील जोखमीच्या बाबतीत कशा वेगळ्या आहेत.",
+        hi: "इंट्राडे, स्विंग और पोज़िशनल तरीके समय-सीमा, मेहनत और हर एक के जोखिम में कैसे अलग हैं।"
+      },
       icon: "target"
     },
     {
-      title: "Risk Management",
-      description: "Stop-losses, position sizing, risk–reward ratios, and the trading psychology that affects how people apply them.",
+      title: { en: "Risk Management", mr: "रिस्क मॅनेजमेंट", hi: "रिस्क मैनेजमेंट" },
+      description: {
+        en: "Stop-losses, position sizing, risk–reward ratios, and the trading psychology that affects how people apply them.",
+        mr: "स्टॉप-लॉस, पोझिशन साइझिंग, रिस्क–रिवॉर्ड रेशो आणि ते प्रत्यक्षात कसे वापरले जातात यावर परिणाम करणारी ट्रेडिंग सायकॉलॉजी.",
+        hi: "स्टॉप-लॉस, पोज़िशन साइज़िंग, रिस्क–रिवॉर्ड रेशियो और वह ट्रेडिंग साइकोलॉजी जो इन्हें लागू करने के तरीके पर असर डालती है।"
+      },
       icon: "shield"
     },
     {
-      title: "Live Market Practice & Observation",
-      description: "Following real market sessions, reviewing analysis afterwards, and documenting decisions to build a repeatable process.",
+      title: { en: "Live Market Practice & Observation", mr: "लाइव्ह मार्केट सराव आणि निरीक्षण", hi: "लाइव मार्केट अभ्यास और ऑब्ज़र्वेशन" },
+      description: {
+        en: "Following real market sessions, reviewing analysis afterwards, and documenting decisions to build a repeatable process.",
+        mr: "प्रत्यक्ष मार्केट सत्रांचे निरीक्षण करणे, नंतर ॲनालिसिसचा आढावा घेणे आणि पुन्हा वापरता येईल अशी प्रक्रिया तयार करण्यासाठी निर्णयांची नोंद ठेवणे.",
+        hi: "असली मार्केट सेशन को फ़ॉलो करना, बाद में एनालिसिस की समीक्षा करना, और दोहराई जा सकने वाली प्रक्रिया बनाने के लिए फ़ैसलों को दर्ज करना।"
+      },
       icon: "eye"
     }
   ]

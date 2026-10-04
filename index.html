@@ -9,20 +9,20 @@
 <link rel="icon" href="assets/lord-sai-logo-300.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-bull-bear.webp" type="image/webp">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="top">
 
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 
 <!-- ======================================================================
      HEADER — logo and a single action. A funnel has no site navigation.
      ================================================================== -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Lord Sai Investment &amp; Share Market Academy — home">
+    <a class="brand" href="#top" aria-label="Lord Sai Investment &amp; Share Market Academy — home" data-i18n-aria="aria.home">
       <img src="assets/lord-sai-logo-300.png"
            srcset="assets/lord-sai-logo-300.png 300w, assets/lord-sai-logo-420.png 420w"
            sizes="(max-width:640px) 150px, 210px"
@@ -30,11 +30,19 @@
            alt="Lord Sai Investment &amp; Share Market Academy">
     </a>
     <div class="header-actions">
-      <a class="btn btn-ghost btn-sm js-wa header-wa" href="#" hidden aria-label="Enquire on WhatsApp">
+      <label class="lang-switch">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+        <select id="langSelect" aria-label="Choose language" data-i18n-aria="lang.label">
+          <option value="en" lang="en">English</option>
+          <option value="mr" lang="mr">मराठी</option>
+          <option value="hi" lang="hi">हिंदी</option>
+        </select>
+      </label>
+      <a class="btn btn-ghost btn-sm js-wa header-wa" href="#" hidden aria-label="Enquire on WhatsApp" data-i18n-aria="wa.enquire">
         <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1112 20.6a8.6 8.6 0 01-4.3-1.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 7.9c.2-.4.4-.4.6-.4h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5a6.6 6.6 0 003 2.5c.2.1.4.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4a1.8 1.8 0 01-1.3 1.5c-.5.2-1.3.2-3-.6a9.8 9.8 0 01-4.1-3.8c-.5-1-.5-1.8-.3-2.3z" fill="currentColor"/></svg>
         <span>WhatsApp</span>
       </a>
-      <a class="btn btn-primary btn-sm header-cta" href="#enquiry">Get Course Details</a>
+      <a class="btn btn-primary btn-sm header-cta" href="#enquiry"><span class="lbl-long" data-i18n="cta.details">Get Course Details</span><span class="lbl-short" data-i18n="cta.short">Enquire</span></a>
     </div>
   </div>
 </header>
@@ -47,22 +55,22 @@
 <section class="hero" id="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="brand-badge">Lord Sai Share Market Academy</p>
-      <h1>Want <span class="hl">Extra Income</span> From the Share Market? Learn the Skill Before You Risk a Rupee.</h1>
-      <p class="hero-sub">Learn the Market. Build the Skill. Make More Informed Decisions.</p>
-      <p class="hero-desc">Explore structured share market education covering market fundamentals, technical analysis, chart reading, trading strategies, and disciplined risk management.</p>
+      <p class="brand-badge" data-i18n="hero.badge">Lord Sai Share Market Academy</p>
+      <h1 data-i18n-html="hero.title">Want <span class="hl">Extra Income</span> From the Share Market? Learn the Skill Before You Risk a Rupee.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Learn the Market. Build the Skill. Make More Informed Decisions.</p>
+      <p class="hero-desc" data-i18n="hero.desc">Explore structured share market education covering market fundamentals, technical analysis, chart reading, trading strategies, and disciplined risk management.</p>
       <div class="cta-row">
-        <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+        <a class="btn btn-primary btn-lg" href="#enquiry"><span data-i18n="cta.details">Get Course Details</span>
           <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost btn-lg js-wa" href="#" hidden>
           <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1112 20.6a8.6 8.6 0 01-4.3-1.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 7.9c.2-.4.4-.4.6-.4h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.1-.2.3 0 .5a6.6 6.6 0 003 2.5c.2.1.4.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4a1.8 1.8 0 01-1.3 1.5c-.5.2-1.3.2-3-.6a9.8 9.8 0 01-4.1-3.8c-.5-1-.5-1.8-.3-2.3z" fill="currentColor"/></svg>
-          Enquire on WhatsApp</a>
+          <span data-i18n="wa.enquire">Enquire on WhatsApp</span></a>
       </div>
       <!-- Level, languages and location — filled from course-config.js -->
       <ul class="hero-facts" id="heroFacts" hidden></ul>
       <p class="hero-risk">
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M12 8.5v4M12 15.5h.01"/></svg>
-        <span>Share market investments and trading involve risk. This is an education programme — it does not guarantee profits.</span>
+        <span data-i18n="hero.risk">Share market investments and trading involve risk. This is an education programme — it does not guarantee profits.</span>
       </p>
     </div>
 
@@ -75,22 +83,22 @@
       </figure>
       <div class="float-chip chip-a" aria-hidden="true">
         <span class="chip-ico"><svg class="i" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 16V9M11 16V5M16 16v-4M21 16V8"/></svg></span>
-        <span><b>Technical Analysis</b><small>Charts, patterns &amp; indicators</small></span>
+        <span><b data-i18n="chip.ta">Technical Analysis</b><small data-i18n="chip.taSub">Charts, patterns &amp; indicators</small></span>
       </div>
       <div class="float-chip chip-b" aria-hidden="true">
         <span class="chip-ico green"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.4l1.8 1.8 3.4-3.6"/></svg></span>
-        <span><b>Risk Management</b><small>Stop-losses &amp; position sizing</small></span>
+        <span><b data-i18n="chip.rm">Risk Management</b><small data-i18n="chip.rmSub">Stop-losses &amp; position sizing</small></span>
       </div>
     </div>
   </div>
 </section>
 
 <div class="wrap highlights-wrap">
-  <ul class="highlights" aria-label="Course highlights">
-    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>Structured curriculum</li>
-    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v4M7 15v6M17 4v3M17 14v6"/><rect x="5" y="7" width="4" height="8" rx="1"/><rect x="15" y="7" width="4" height="7" rx="1"/></svg></span>Practical chart analysis</li>
-    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg></span>Live market observation</li>
-    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.4l1.8 1.8 3.4-3.6"/></svg></span>Risk-first approach</li>
+  <ul class="highlights" aria-label="Course highlights" data-i18n-aria="hl.aria">
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><span data-i18n="hl.1">Structured curriculum</span></li>
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v4M7 15v6M17 4v3M17 14v6"/><rect x="5" y="7" width="4" height="8" rx="1"/><rect x="15" y="7" width="4" height="7" rx="1"/></svg></span><span data-i18n="hl.2">Practical chart analysis</span></li>
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg></span><span data-i18n="hl.3">Live market observation</span></li>
+    <li><span class="hi-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.4l1.8 1.8 3.4-3.6"/></svg></span><span data-i18n="hl.4">Risk-first approach</span></li>
   </ul>
 </div>
 
@@ -101,42 +109,42 @@
   <div class="wrap">
     <header class="section-head split-head">
       <div>
-        <p class="eyebrow">The problem</p>
-        <h2>Random Tips Are Not a Substitute for Understanding the Market.</h2>
+        <p class="eyebrow" data-i18n="prob.eyebrow">The problem</p>
+        <h2 data-i18n="prob.title">Random Tips Are Not a Substitute for Understanding the Market.</h2>
       </div>
-      <p class="lead">These are challenges people commonly describe when they start out. They will not all apply to everyone — but most learners recognise at least a few.</p>
+      <p class="lead" data-i18n="prob.lead">These are challenges people commonly describe when they start out. They will not all apply to everyone — but most learners recognise at least a few.</p>
     </header>
 
     <div class="cards cards-3">
       <article class="card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/><circle cx="19" cy="17.5" r="3"/></svg></span>
-        <h3>Too Much Conflicting Information</h3>
-        <p>Beginners may encounter different opinions, strategies and market predictions without knowing how to evaluate them.</p>
+        <h3 data-i18n="prob.1t">Too Much Conflicting Information</h3>
+        <p data-i18n="prob.1p">Beginners may encounter different opinions, strategies and market predictions without knowing how to evaluate them.</p>
       </article>
       <article class="card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M7 16V9m0-2v2m0 7v2"/><path d="M12 14V6m0-2v2m0 8v3"/><path d="M17 17v-5m0-2v2m0 5v2"/></svg></span>
-        <h3>Difficulty Reading Charts</h3>
-        <p>Candlesticks, trends, indicators, support and resistance can feel confusing without a structured learning process.</p>
+        <h3 data-i18n="prob.2t">Difficulty Reading Charts</h3>
+        <p data-i18n="prob.2p">Candlesticks, trends, indicators, support and resistance can feel confusing without a structured learning process.</p>
       </article>
       <article class="card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18L9 8l4 6 3-4 4 8z"/><path d="M3 21h18"/></svg></span>
-        <h3>No Clear Learning Roadmap</h3>
-        <p>Trying to learn everything at once makes it hard to progress from basic concepts through to practical analysis.</p>
+        <h3 data-i18n="prob.3t">No Clear Learning Roadmap</h3>
+        <p data-i18n="prob.3p">Trying to learn everything at once makes it hard to progress from basic concepts through to practical analysis.</p>
       </article>
       <article class="card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-7-9.5A4.5 4.5 0 0112 8a4.5 4.5 0 017 3.5c0 5.1-7 9.5-7 9.5z"/></svg></span>
-        <h3>Emotional Decision-Making</h3>
-        <p>Fear, excitement and unrealistic expectations can all affect trading decisions.</p>
+        <h3 data-i18n="prob.4t">Emotional Decision-Making</h3>
+        <p data-i18n="prob.4p">Fear, excitement and unrealistic expectations can all affect trading decisions.</p>
       </article>
       <article class="card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M12 9v4M12 16h.01"/></svg></span>
-        <h3>Unclear Risk Management</h3>
-        <p>Without understanding position sizing, stop-losses and risk–reward, learners may underestimate potential losses.</p>
+        <h3 data-i18n="prob.5t">Unclear Risk Management</h3>
+        <p data-i18n="prob.5p">Without understanding position sizing, stop-losses and risk–reward, learners may underestimate potential losses.</p>
       </article>
       <article class="card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 2"/></svg></span>
-        <h3>Acting Before Learning</h3>
-        <p>Entering the market without understanding the instruments, the costs and the risks exposes people to avoidable mistakes.</p>
+        <h3 data-i18n="prob.6t">Acting Before Learning</h3>
+        <p data-i18n="prob.6p">Entering the market without understanding the instruments, the costs and the risks exposes people to avoidable mistakes.</p>
       </article>
     </div>
   </div>
@@ -148,26 +156,26 @@
 <section class="section section-tint" id="lost">
   <div class="wrap">
     <header class="section-head center">
-      <p class="eyebrow">What it has already cost</p>
-      <h2>Learning Without Direction Has Already Cost Most Beginners Something.</h2>
-      <p class="lead">Not money lost on the market, necessarily — but time, clarity and confidence. Many learners will recognise some of this.</p>
+      <p class="eyebrow" data-i18n="lost.eyebrow">What it has already cost</p>
+      <h2 data-i18n="lost.title">Learning Without Direction Has Already Cost Most Beginners Something.</h2>
+      <p class="lead" data-i18n="lost.lead">Not money lost on the market, necessarily — but time, clarity and confidence. Many learners will recognise some of this.</p>
     </header>
 
     <div class="loss-grid">
       <article class="loss-card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12"/><path d="M7 3v2.5a5 5 0 002.2 4.1L12 12l2.8-2.4A5 5 0 0017 5.5V3"/><path d="M7 21v-2.5a5 5 0 012.2-4.1L12 12l2.8 2.4a5 5 0 012.2 4.1V21"/></svg></span>
-        <h3>Time</h3>
-        <p>Hours spent across videos, forums and tips that never added up to a clear understanding.</p>
+        <h3 data-i18n="lost.1t">Time</h3>
+        <p data-i18n="lost.1p">Hours spent across videos, forums and tips that never added up to a clear understanding.</p>
       </article>
       <article class="loss-card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.1A9.7 9.7 0 0112 6c6 0 9.5 6 9.5 6a16.4 16.4 0 01-2.9 3.6M6.5 7.6C4 9.3 2.5 12 2.5 12S6 18 12 18a9.3 9.3 0 004.4-1.1"/><path d="M9.9 9.9a3 3 0 004.2 4.2"/></svg></span>
-        <h3>Clarity</h3>
-        <p>Terms, charts and strategies that still feel confusing, however much you have read.</p>
+        <h3 data-i18n="lost.2t">Clarity</h3>
+        <p data-i18n="lost.2p">Terms, charts and strategies that still feel confusing, however much you have read.</p>
       </article>
       <article class="loss-card">
         <span class="card-ico ico-pain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M21 11v6h-6"/></svg></span>
-        <h3>Confidence</h3>
-        <p>Hesitation to act, or second-guessing decisions you cannot explain to yourself.</p>
+        <h3 data-i18n="lost.3t">Confidence</h3>
+        <p data-i18n="lost.3p">Hesitation to act, or second-guessing decisions you cannot explain to yourself.</p>
       </article>
     </div>
   </div>
@@ -179,21 +187,19 @@
 <section class="section" id="consequences">
   <div class="wrap risk-grid">
     <div class="risk-copy">
-      <p class="eyebrow">What you may lose next</p>
-      <h2>Without a Learning Plan, the Confusion Can Continue.</h2>
-      <p class="lead">Nothing here is inevitable, and no one can tell you what the market will do. But these are the patterns that tend to persist when learning stays unstructured.</p>
-      <blockquote class="transition-quote">
-        The solution is not a shortcut to profits. It is learning how the market works, understanding risk, and developing a structured approach.
-      </blockquote>
+      <p class="eyebrow" data-i18n="cons.eyebrow">What you may lose next</p>
+      <h2 data-i18n="cons.title">Without a Learning Plan, the Confusion Can Continue.</h2>
+      <p class="lead" data-i18n="cons.lead">Nothing here is inevitable, and no one can tell you what the market will do. But these are the patterns that tend to persist when learning stays unstructured.</p>
+      <blockquote class="transition-quote" data-i18n="cons.quote">The solution is not a shortcut to profits. It is learning how the market works, understanding risk, and developing a structured approach.</blockquote>
     </div>
 
     <ul class="consequence-list">
-      <li>Continuing to depend on unverified tips and opinions.</li>
-      <li>Struggling to interpret market charts and terminology.</li>
-      <li>Making decisions without a defined process.</li>
-      <li>Overlooking the importance of risk management.</li>
-      <li>Spending time on disconnected resources with no structured progression.</li>
-      <li>Developing unrealistic expectations about quick profits.</li>
+      <li data-i18n="cons.1">Continuing to depend on unverified tips and opinions.</li>
+      <li data-i18n="cons.2">Struggling to interpret market charts and terminology.</li>
+      <li data-i18n="cons.3">Making decisions without a defined process.</li>
+      <li data-i18n="cons.4">Overlooking the importance of risk management.</li>
+      <li data-i18n="cons.5">Spending time on disconnected resources with no structured progression.</li>
+      <li data-i18n="cons.6">Developing unrealistic expectations about quick profits.</li>
     </ul>
   </div>
 </section>
@@ -204,16 +210,16 @@
 <section class="section section-dark" id="solution-intro">
   <div class="wrap solution-grid">
     <div>
-      <p class="eyebrow">The solution</p>
-      <h2>You Can Start Learning With a <span class="hl">Structured Course</span>.</h2>
-      <p class="lead">Lord Sai Share Market Academy offers a learning path covering foundational market concepts, technical analysis, fundamental analysis, trading strategies and risk management.</p>
+      <p class="eyebrow" data-i18n="sol.eyebrow">The solution</p>
+      <h2 data-i18n-html="sol.title">You Can Start Learning With a <span class="hl">Structured Course</span>.</h2>
+      <p class="lead" data-i18n="sol.lead">Lord Sai Share Market Academy offers a learning path covering foundational market concepts, technical analysis, fundamental analysis, trading strategies and risk management.</p>
       <ul class="check-list">
-        <li>A structured course curriculum</li>
-        <li>Practical market examples and chart analysis</li>
-        <li>Learning resources and support</li>
+        <li data-i18n="sol.c1">A structured course curriculum</li>
+        <li data-i18n="sol.c2">Practical market examples and chart analysis</li>
+        <li data-i18n="sol.c3">Learning resources and support</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+        <a class="btn btn-primary btn-lg" href="#enquiry"><span data-i18n="cta.details">Get Course Details</span>
           <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -222,8 +228,8 @@
     <figure class="chart-card" aria-hidden="true">
       <div class="chart-head">
         <span class="chart-dots"><i></i><i></i><i></i></span>
-        <span>Chart reading practice</span>
-        <span class="chart-tag">Illustrative</span>
+        <span data-i18n="chart.title">Chart reading practice</span>
+        <span class="chart-tag" data-i18n="chart.tag">Illustrative</span>
       </div>
       <svg class="chart-svg" viewBox="0 0 560 300" role="presentation">
       <line x1="0" y1="40" x2="560" y2="40" stroke="rgba(255,255,255,.06)"/>
@@ -249,13 +255,13 @@
       <rect x="412" y="260" width="12" height="30" rx="1.5" fill="#2BD49A" opacity=".22"/>
       <line x1="8" y1="80" x2="432" y2="80" stroke="#F5B544" stroke-width="1.5" stroke-dasharray="6 5" opacity=".9"/>
       <rect x="440" y="69" width="110" height="22" rx="11" fill="#F5B544" fill-opacity=".14" stroke="#F5B544" stroke-opacity=".55"/>
-      <text x="495" y="80" text-anchor="middle" dominant-baseline="central" fill="#F5B544">Resistance</text>
+      <text x="495" y="80" text-anchor="middle" dominant-baseline="central" fill="#F5B544" data-i18n="chart.res">Resistance</text>
       <line x1="8" y1="200" x2="432" y2="200" stroke="#2BD49A" stroke-width="1.5" stroke-dasharray="6 5" opacity=".9"/>
       <rect x="440" y="189" width="110" height="22" rx="11" fill="#2BD49A" fill-opacity=".14" stroke="#2BD49A" stroke-opacity=".55"/>
-      <text x="495" y="200" text-anchor="middle" dominant-baseline="central" fill="#2BD49A">Support</text>
+      <text x="495" y="200" text-anchor="middle" dominant-baseline="central" fill="#2BD49A" data-i18n="chart.sup">Support</text>
       <line x1="8" y1="236" x2="432" y2="236" stroke="#F37A82" stroke-width="1.5" stroke-dasharray="6 5" opacity=".9"/>
       <rect x="440" y="225" width="110" height="22" rx="11" fill="#F37A82" fill-opacity=".14" stroke="#F37A82" stroke-opacity=".55"/>
-      <text x="495" y="236" text-anchor="middle" dominant-baseline="central" fill="#F37A82">Stop-loss</text>
+      <text x="495" y="236" text-anchor="middle" dominant-baseline="central" fill="#F37A82" data-i18n="chart.sl">Stop-loss</text>
       <line x1="28" y1="180" x2="28" y2="212" stroke="#2BD49A" stroke-width="1.6"/>
       <rect x="22" y="185" width="12" height="20" rx="2" fill="#2BD49A"/>
       <line x1="54" y1="162" x2="54" y2="190" stroke="#2BD49A" stroke-width="1.6"/>
@@ -300,28 +306,28 @@
 <section class="section" id="future">
   <div class="wrap">
     <header class="section-head center">
-      <p class="eyebrow">What you can learn</p>
-      <h2>Imagine Approaching the Market With <span class="hl">More Knowledge</span> and a Clearer Process.</h2>
-      <p class="lead">Structured education can help you build a foundation for understanding market behaviour, analysing charts, learning trading concepts, and evaluating risk before making financial decisions.</p>
+      <p class="eyebrow" data-i18n="fut.eyebrow">What you can learn</p>
+      <h2 data-i18n-html="fut.title">Imagine Approaching the Market With <span class="hl">More Knowledge</span> and a Clearer Process.</h2>
+      <p class="lead" data-i18n="fut.lead">Structured education can help you build a foundation for understanding market behaviour, analysing charts, learning trading concepts, and evaluating risk before making financial decisions.</p>
     </header>
 
-    <ol class="progression" aria-label="Learning progression">
+    <ol class="progression" aria-label="Learning progression" data-i18n-aria="pg.aria">
       <li>
         <span class="pg-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V6a2 2 0 012-2h12v15H6a2 2 0 00-2 2z"/><path d="M8 8h7M8 11.5h7"/></svg></span>
-        <span class="pg-step">Step 1</span>
-        <h3>Foundation</h3><p>Terminology, instruments and how the market actually functions.</p>
+        <span class="pg-step" data-i18n="pg.s1">Step 1</span>
+        <h3 data-i18n="pg.1t">Foundation</h3><p data-i18n="pg.1p">Terminology, instruments and how the market actually functions.</p>
       </li>
       <li class="pg-arrow" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
       <li>
         <span class="pg-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16V9M11 16V5M16 16v-4M21 16V8"/></svg></span>
-        <span class="pg-step">Step 2</span>
-        <h3>Analysis</h3><p>Reading charts, comparing technical and fundamental approaches.</p>
+        <span class="pg-step" data-i18n="pg.s2">Step 2</span>
+        <h3 data-i18n="pg.2t">Analysis</h3><p data-i18n="pg.2p">Reading charts, comparing technical and fundamental approaches.</p>
       </li>
       <li class="pg-arrow" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
       <li>
         <span class="pg-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.4-3.2 8.2-8 9-4.8-.8-8-4.6-8-9V7z"/><path d="M9.5 12.5l1.8 1.8 3.4-3.6"/></svg></span>
-        <span class="pg-step">Step 3</span>
-        <h3>Risk Awareness</h3><p>Position sizing, stop-losses and the discipline to apply them.</p>
+        <span class="pg-step" data-i18n="pg.s3">Step 3</span>
+        <h3 data-i18n="pg.3t">Risk Awareness</h3><p data-i18n="pg.3p">Position sizing, stop-losses and the discipline to apply them.</p>
       </li>
     </ol>
   </div>
@@ -331,33 +337,33 @@
   <div class="wrap">
     <header class="section-head split-head">
       <div>
-        <p class="eyebrow">Learning outcomes</p>
-        <h2>What Learners Can Work Towards Understanding</h2>
+        <p class="eyebrow" data-i18n="out.eyebrow">Learning outcomes</p>
+        <h2 data-i18n="out.title">What Learners Can Work Towards Understanding</h2>
       </div>
-      <p class="lead">These are learning objectives, not promised results. Markets stay uncertain however well you understand them.</p>
+      <p class="lead" data-i18n="out.lead">These are learning objectives, not promised results. Markets stay uncertain however well you understand them.</p>
     </header>
 
     <div class="cards cards-3">
       <article class="card card-outcome"><span class="out-n">01</span>
-        <h3>Understand Market Fundamentals</h3>
-        <p>How the share market works, who its participants are, and the terminology used throughout.</p></article>
+        <h3 data-i18n="out.1t">Understand Market Fundamentals</h3>
+        <p data-i18n="out.1p">How the share market works, who its participants are, and the terminology used throughout.</p></article>
       <article class="card card-outcome"><span class="out-n">02</span>
-        <h3>Read and Interpret Charts</h3>
-        <p>Familiarity with candlesticks, price patterns, trends and technical indicators.</p></article>
+        <h3 data-i18n="out.2t">Read and Interpret Charts</h3>
+        <p data-i18n="out.2p">Familiarity with candlesticks, price patterns, trends and technical indicators.</p></article>
       <article class="card card-outcome"><span class="out-n">03</span>
-        <h3>Explore Fundamental Analysis</h3>
-        <p>Company financial information, sector context and valuation concepts.</p></article>
+        <h3 data-i18n="out.3t">Explore Fundamental Analysis</h3>
+        <p data-i18n="out.3p">Company financial information, sector context and valuation concepts.</p></article>
       <article class="card card-outcome"><span class="out-n">04</span>
-        <h3>Learn Different Trading Approaches</h3>
-        <p>How intraday, swing and position trading differ in horizon, effort and risk.</p></article>
+        <h3 data-i18n="out.4t">Learn Different Trading Approaches</h3>
+        <p data-i18n="out.4p">How intraday, swing and position trading differ in horizon, effort and risk.</p></article>
       <article class="card card-outcome"><span class="out-n">05</span>
-        <h3>Understand Risk Management</h3>
-        <p>Stop-losses, position sizing, risk–reward ratios and trading psychology.</p></article>
+        <h3 data-i18n="out.5t">Understand Risk Management</h3>
+        <p data-i18n="out.5p">Stop-losses, position sizing, risk–reward ratios and trading psychology.</p></article>
       <article class="card card-outcome"><span class="out-n">06</span>
-        <h3>Practise Market Analysis</h3>
-        <p>Working through market scenarios, then reviewing and documenting analytical decisions.</p></article>
+        <h3 data-i18n="out.6t">Practise Market Analysis</h3>
+        <p data-i18n="out.6p">Working through market scenarios, then reviewing and documenting analytical decisions.</p></article>
     </div>
-    <p class="note">These are things you can learn to do. None of them promise profitability, accurate price prediction, or any particular income.</p>
+    <p class="note" data-i18n="out.note">These are things you can learn to do. None of them promise profitability, accurate price prediction, or any particular income.</p>
   </div>
 </section>
 
@@ -365,24 +371,24 @@
   <div class="wrap">
     <div class="journey-grid">
       <div class="journey-aside">
-        <p class="eyebrow">Your learning path</p>
-        <h2>The Learning Journey, Step by Step</h2>
-        <p class="note-box"><strong>Practice is educational.</strong> It builds your process — it does not remove market risk.</p>
+        <p class="eyebrow" data-i18n="jr.eyebrow">Your learning path</p>
+        <h2 data-i18n="jr.title">The Learning Journey, Step by Step</h2>
+        <p class="note-box" data-i18n-html="jr.note"><strong>Practice is educational.</strong> It builds your process — it does not remove market risk.</p>
       </div>
 
       <ol class="timeline">
-        <li><span class="tl-n">1</span><div><h3>Learn the Basics</h3><p>Understand share market terminology and mechanics.</p></div></li>
-        <li><span class="tl-n">2</span><div><h3>Study Market Charts</h3><p>Explore candlestick charts, patterns, indicators and trends.</p></div></li>
-        <li><span class="tl-n">3</span><div><h3>Understand Analysis</h3><p>Learn the difference between technical and fundamental analysis.</p></div></li>
-        <li><span class="tl-n">4</span><div><h3>Explore Strategies</h3><p>Understand different trading styles and what characterises each.</p></div></li>
-        <li><span class="tl-n">5</span><div><h3>Study Risk Management</h3><p>Why risk–reward planning, position sizing and emotional discipline matter.</p></div></li>
-        <li><span class="tl-n">6</span><div><h3>Review and Practise</h3><p>Use educational examples and market observation to build a more structured process.</p></div></li>
+        <li><span class="tl-n">1</span><div><h3 data-i18n="jr.1t">Learn the Basics</h3><p data-i18n="jr.1p">Understand share market terminology and mechanics.</p></div></li>
+        <li><span class="tl-n">2</span><div><h3 data-i18n="jr.2t">Study Market Charts</h3><p data-i18n="jr.2p">Explore candlestick charts, patterns, indicators and trends.</p></div></li>
+        <li><span class="tl-n">3</span><div><h3 data-i18n="jr.3t">Understand Analysis</h3><p data-i18n="jr.3p">Learn the difference between technical and fundamental analysis.</p></div></li>
+        <li><span class="tl-n">4</span><div><h3 data-i18n="jr.4t">Explore Strategies</h3><p data-i18n="jr.4p">Understand different trading styles and what characterises each.</p></div></li>
+        <li><span class="tl-n">5</span><div><h3 data-i18n="jr.5t">Study Risk Management</h3><p data-i18n="jr.5p">Why risk–reward planning, position sizing and emotional discipline matter.</p></div></li>
+        <li><span class="tl-n">6</span><div><h3 data-i18n="jr.6t">Review and Practise</h3><p data-i18n="jr.6p">Use educational examples and market observation to build a more structured process.</p></div></li>
       </ol>
     </div>
 
     <div class="cta-banner">
-      <p class="cta-banner-title">Want to see how the course fits your level?</p>
-      <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+      <p class="cta-banner-title" data-i18n="banner.level">Want to see how the course fits your level?</p>
+      <a class="btn btn-primary btn-lg" href="#enquiry"><span data-i18n="cta.details">Get Course Details</span>
         <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
@@ -394,26 +400,24 @@
 <section class="section section-tint" id="course">
   <div class="wrap">
     <header class="section-head center">
-      <p class="eyebrow">The course</p>
-      <h2>Learn the Share Market Step by Step With Lord Sai Share Market Academy.</h2>
-      <p class="lead">Explore a structured share market education program designed to help learners understand market fundamentals, chart analysis, trading approaches and risk management.</p>
+      <p class="eyebrow" data-i18n="course.eyebrow">The course</p>
+      <h2 data-i18n="course.title">Learn the Share Market Step by Step With Lord Sai Share Market Academy.</h2>
+      <p class="lead" data-i18n="course.lead">Explore a structured share market education program designed to help learners understand market fundamentals, chart analysis, trading approaches and risk management.</p>
     </header>
 
     <div class="course-grid">
       <div class="panel">
-        <h3 class="panel-title">Course details</h3>
+        <h3 class="panel-title" data-i18n="course.details">Course details</h3>
         <!-- Each row renders only if set in course-config.js -->
         <dl class="facts" id="courseFacts"></dl>
-        <p class="facts-note" id="factsEnquireNote" hidden>
-          For current batch dates, duration and fees, please <a href="#enquiry">send an enquiry</a> — we would rather tell you directly than publish something out of date.
-        </p>
+        <p class="facts-note" id="factsEnquireNote" hidden data-i18n-html="course.factsNote">For current batch dates, duration and fees, please <a href="#enquiry">send an enquiry</a> — we would rather tell you directly than publish something out of date.</p>
       </div>
 
       <div class="panel panel-included" id="features" hidden>
-        <h3 class="panel-title">What's Included</h3>
-        <p class="panel-sub">Only what the course genuinely provides is listed here.</p>
+        <h3 class="panel-title" data-i18n="course.included">What's Included</h3>
+        <p class="panel-sub" data-i18n="course.includedSub">Only what the course genuinely provides is listed here.</p>
         <ul class="feature-list" id="featureList"></ul>
-        <a class="btn btn-primary btn-block" href="#enquiry">Get Course Details
+        <a class="btn btn-primary btn-block" href="#enquiry"><span data-i18n="cta.details">Get Course Details</span>
           <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -424,10 +428,10 @@
   <div class="wrap">
     <header class="section-head split-head">
       <div>
-        <p class="eyebrow">Curriculum</p>
-        <h2>Course Curriculum</h2>
+        <p class="eyebrow" data-i18n="cur.eyebrow">Curriculum</p>
+        <h2 data-i18n="cur.title">Course Curriculum</h2>
       </div>
-      <p class="lead">What the programme covers, module by module.</p>
+      <p class="lead" data-i18n="cur.lead">What the programme covers, module by module.</p>
     </header>
     <div class="modules" id="moduleList"></div>
   </div>
@@ -436,22 +440,22 @@
 <section class="section" id="why">
   <div class="wrap">
     <header class="section-head center">
-      <p class="eyebrow">Why structured learning</p>
-      <h2>Build Your Understanding Before Making Market Decisions.</h2>
+      <p class="eyebrow" data-i18n="why.eyebrow">Why structured learning</p>
+      <h2 data-i18n="why.title">Build Your Understanding Before Making Market Decisions.</h2>
     </header>
 
     <div class="why-grid">
-      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Understand market terminology</h3><p>Follow market commentary and documentation without getting lost in jargon.</p></div></article>
-      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Develop chart-reading familiarity</h3><p>Look at a chart and know what you are actually looking at.</p></div></article>
-      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Compare analytical approaches</h3><p>See where technical and fundamental analysis each have something to offer.</p></div></article>
-      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Understand risk planning</h3><p>Know what you stand to lose before you consider what you might gain.</p></div></article>
-      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Explore concepts through lessons</h3><p>Build knowledge in a deliberate order rather than in scattered fragments.</p></div></article>
-      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3>Build a learning routine</h3><p>Turn occasional curiosity into consistent, reviewable study.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3 data-i18n="why.1t">Understand market terminology</h3><p data-i18n="why.1p">Follow market commentary and documentation without getting lost in jargon.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3 data-i18n="why.2t">Develop chart-reading familiarity</h3><p data-i18n="why.2p">Look at a chart and know what you are actually looking at.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3 data-i18n="why.3t">Compare analytical approaches</h3><p data-i18n="why.3p">See where technical and fundamental analysis each have something to offer.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3 data-i18n="why.4t">Understand risk planning</h3><p data-i18n="why.4p">Know what you stand to lose before you consider what you might gain.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3 data-i18n="why.5t">Explore concepts through lessons</h3><p data-i18n="why.5p">Build knowledge in a deliberate order rather than in scattered fragments.</p></div></article>
+      <article class="why-item"><span class="why-check" aria-hidden="true"></span><div><h3 data-i18n="why.6t">Build a learning routine</h3><p data-i18n="why.6p">Turn occasional curiosity into consistent, reviewable study.</p></div></article>
     </div>
 
     <div class="cta-banner">
-      <p class="cta-banner-title">Questions about batches, duration or admission? Ask us directly.</p>
-      <a class="btn btn-primary btn-lg" href="#enquiry">Get Course Details
+      <p class="cta-banner-title" data-i18n="banner.questions">Questions about batches, duration or admission? Ask us directly.</p>
+      <a class="btn btn-primary btn-lg" href="#enquiry"><span data-i18n="cta.details">Get Course Details</span>
         <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
@@ -463,8 +467,8 @@
 <section class="section section-tint" id="proof" hidden>
   <div class="wrap">
     <header class="section-head center">
-      <p class="eyebrow">Why trust us</p>
-      <h2>Why Learners Can Trust This Course</h2>
+      <p class="eyebrow" data-i18n="proof.eyebrow">Why trust us</p>
+      <h2 data-i18n="proof.title">Why Learners Can Trust This Course</h2>
     </header>
     <ul class="proof-stats" id="proofStats"></ul>
     <p class="proof-trainer" id="proofTrainer" hidden></p>
@@ -478,32 +482,32 @@
 <section class="section section-dark" id="enquiry">
   <div class="wrap enquiry-grid">
     <div class="enquiry-copy">
-      <p class="eyebrow">Enquire now</p>
-      <h2>Ready to Learn More About the Share Market Course?</h2>
-      <p class="lead">Submit your enquiry to learn more about the curriculum, training format, upcoming batches and admission details.</p>
-      <ol class="next-steps" aria-label="What happens next">
-        <li><span class="ns-n">1</span><div><h3>Send your enquiry</h3><p>Share your name, number and preferred contact method.</p></div></li>
-        <li><span class="ns-n">2</span><div><h3>We get back to you</h3><p>Using the contact method you choose in the form.</p></div></li>
-        <li><span class="ns-n">3</span><div><h3>Get the current details</h3><p>Upcoming batches, duration, fees and admission.</p></div></li>
+      <p class="eyebrow" data-i18n="enq.eyebrow">Enquire now</p>
+      <h2 data-i18n="enq.title">Ready to Learn More About the Share Market Course?</h2>
+      <p class="lead" data-i18n="enq.lead">Submit your enquiry to learn more about the curriculum, training format, upcoming batches and admission details.</p>
+      <ol class="next-steps" aria-label="What happens next" data-i18n-aria="ns.aria">
+        <li><span class="ns-n">1</span><div><h3 data-i18n="ns.1t">Send your enquiry</h3><p data-i18n="ns.1p">Share your name, number and preferred contact method.</p></div></li>
+        <li><span class="ns-n">2</span><div><h3 data-i18n="ns.2t">We get back to you</h3><p data-i18n="ns.2p">Using the contact method you choose in the form.</p></div></li>
+        <li><span class="ns-n">3</span><div><h3 data-i18n="ns.3t">Get the current details</h3><p data-i18n="ns.3p">Upcoming batches, duration, fees and admission.</p></div></li>
       </ol>
     </div>
 
     <div class="form-card">
-      <h3 class="form-title">Get Course Details</h3>
-      <p class="form-sub">Fill in your details and our team will get back to you.</p>
+      <h3 class="form-title" data-i18n="cta.details">Get Course Details</h3>
+      <p class="form-sub" data-i18n="form.sub">Fill in your details and our team will get back to you.</p>
 
       <form class="enquiry" id="enquiryForm" novalidate>
         <div class="grid-2">
           <div class="field">
-            <label for="fName">Full Name <em class="req">required</em></label>
-            <input type="text" id="fName" name="name" autocomplete="name" required aria-describedby="eName" placeholder="Your full name">
-            <p class="err" id="eName" hidden>Please enter your full name.</p>
+            <label for="fName"><span data-i18n="form.name">Full Name</span> <em class="req" data-i18n="form.required">required</em></label>
+            <input type="text" id="fName" name="name" autocomplete="name" required aria-describedby="eName" placeholder="Your full name" data-i18n-ph="ph.name">
+            <p class="err" id="eName" hidden data-i18n="err.name">Please enter your full name.</p>
           </div>
 
           <div class="field">
-            <label for="fMobile">Mobile Number <em class="req">required</em></label>
+            <label for="fMobile"><span data-i18n="form.mobile">Mobile Number</span> <em class="req" data-i18n="form.required">required</em></label>
             <div class="combo">
-              <select id="fCode" name="countryCode" class="cc" aria-label="Country code">
+              <select id="fCode" name="countryCode" class="cc" aria-label="Country code" data-i18n-aria="aria.cc">
                 <option value="+91" selected>+91</option>
                 <option value="+971">+971</option>
                 <option value="+966">+966</option>
@@ -514,59 +518,59 @@
                 <option value="+1">+1</option>
                 <option value="+61">+61</option>
               </select>
-              <input type="tel" id="fMobile" name="mobile" inputmode="tel" autocomplete="tel-national" required aria-describedby="eMobile" placeholder="10-digit mobile number">
+              <input type="tel" id="fMobile" name="mobile" inputmode="tel" autocomplete="tel-national" required aria-describedby="eMobile" placeholder="10-digit mobile number" data-i18n-ph="ph.mobile">
             </div>
-            <p class="err" id="eMobile" hidden>Please enter a valid mobile number.</p>
+            <p class="err" id="eMobile" hidden data-i18n="err.mobile">Please enter a valid mobile number.</p>
           </div>
 
           <div class="field">
-            <label for="fEmail">Email Address <em class="opt">optional</em></label>
+            <label for="fEmail"><span data-i18n="form.email">Email Address</span> <em class="opt" data-i18n="form.optional">optional</em></label>
             <input type="email" id="fEmail" name="email" autocomplete="email" aria-describedby="eEmail" placeholder="you@example.com">
-            <p class="err" id="eEmail" hidden>Please enter a valid email address, or leave this blank.</p>
+            <p class="err" id="eEmail" hidden data-i18n="err.email">Please enter a valid email address, or leave this blank.</p>
           </div>
 
           <div class="field">
-            <label for="fLanguage">Preferred Language <em class="opt">optional</em></label>
+            <label for="fLanguage"><span data-i18n="form.language">Preferred Language</span> <em class="opt" data-i18n="form.optional">optional</em></label>
             <select id="fLanguage" name="preferredLanguage">
-              <option value="">No preference</option>
-              <option value="english">English</option>
-              <option value="hindi">Hindi</option>
-              <option value="marathi">Marathi</option>
+              <option value="" data-i18n="opt.noPref">No preference</option>
+              <option value="english" data-i18n="opt.english">English</option>
+              <option value="hindi" data-i18n="opt.hindi">Hindi</option>
+              <option value="marathi" data-i18n="opt.marathi">Marathi</option>
             </select>
           </div>
         </div>
 
         <div class="field field-full">
-          <label for="fExperience">Learning Experience <em class="opt">optional</em></label>
+          <label for="fExperience"><span data-i18n="form.experience">Learning Experience</span> <em class="opt" data-i18n="form.optional">optional</em></label>
           <select id="fExperience" name="experience">
-            <option value="">Prefer not to say</option>
-            <option value="beginner">Beginner — completely new to the market</option>
-            <option value="some">Some experience</option>
-            <option value="other">Other</option>
+            <option value="" data-i18n="opt.preferNot">Prefer not to say</option>
+            <option value="beginner" data-i18n="opt.beginner">Beginner — completely new to the market</option>
+            <option value="some" data-i18n="opt.some">Some experience</option>
+            <option value="other" data-i18n="opt.other">Other</option>
           </select>
         </div>
 
         <fieldset class="field field-full">
-          <legend>Preferred Contact Method <em class="req">required</em></legend>
+          <legend><span data-i18n="form.method">Preferred Contact Method</span> <em class="req" data-i18n="form.required">required</em></legend>
           <div class="radios" aria-describedby="eMethod">
-            <label class="radio"><input type="radio" name="contactMethod" value="phone" checked><span>Phone</span></label>
+            <label class="radio"><input type="radio" name="contactMethod" value="phone" checked><span data-i18n="form.phone">Phone</span></label>
             <label class="radio js-wa-radio" hidden><input type="radio" name="contactMethod" value="whatsapp"><span>WhatsApp</span></label>
-            <label class="radio"><input type="radio" name="contactMethod" value="email"><span>Email</span></label>
+            <label class="radio"><input type="radio" name="contactMethod" value="email"><span data-i18n="form.emailOpt">Email</span></label>
           </div>
           <p class="err" id="eMethod" hidden></p>
         </fieldset>
 
         <div class="field field-full">
-          <label for="fMessage">Message or Question <em class="opt">optional</em></label>
-          <textarea id="fMessage" name="message" rows="3" placeholder="Anything you would like to ask about the course"></textarea>
+          <label for="fMessage"><span data-i18n="form.message">Message or Question</span> <em class="opt" data-i18n="form.optional">optional</em></label>
+          <textarea id="fMessage" name="message" rows="3" placeholder="Anything you would like to ask about the course" data-i18n-ph="ph.message"></textarea>
         </div>
 
         <div class="field field-full consent-field">
           <label class="checkbox">
             <input type="checkbox" id="fConsent" name="consent" required aria-describedby="eConsent">
-            <span>I agree to be contacted about this enquiry using the contact method I selected.</span>
+            <span data-i18n="form.consent">I agree to be contacted about this enquiry using the contact method I selected.</span>
           </label>
-          <p class="err" id="eConsent" hidden>Please tick the consent box so we are permitted to contact you.</p>
+          <p class="err" id="eConsent" hidden data-i18n="err.consent">Please tick the consent box so we are permitted to contact you.</p>
         </div>
 
         <div class="submit-row">
@@ -574,19 +578,19 @@
             <span class="btn-label">Submit Course Enquiry</span>
             <span class="spinner" aria-hidden="true"></span>
           </button>
-          <a class="btn btn-wa btn-lg btn-block js-wa" href="#" hidden>Ask Us on WhatsApp</a>
+          <a class="btn btn-wa btn-lg btn-block js-wa" href="#" hidden data-i18n="form.askWa">Ask Us on WhatsApp</a>
         </div>
-        <p class="wa-hint" id="waHint" hidden>This opens WhatsApp with your details already written out. You still press send inside WhatsApp.</p>
+        <p class="wa-hint" id="waHint" hidden data-i18n="form.waHint">This opens WhatsApp with your details already written out. You still press send inside WhatsApp.</p>
 
         <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
 
         <p class="privacy-note">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
-          Your details are used only to respond to this enquiry.
+          <span data-i18n="form.privacy">Your details are used only to respond to this enquiry.</span>
         </p>
         <p class="privacy-note privacy-links" id="formPolicyLinks" hidden>
-          <a href="#" id="formPrivacy" hidden>Privacy Policy</a>
-          <a href="#" id="formTerms" hidden>Terms of Use</a>
+          <a href="#" id="formPrivacy" hidden data-i18n="link.privacy">Privacy Policy</a>
+          <a href="#" id="formTerms" hidden data-i18n="link.terms">Terms of Use</a>
         </p>
       </form>
     </div>
@@ -599,10 +603,10 @@
 <section class="section" id="faqs">
   <div class="wrap faq-grid">
     <div class="faq-aside">
-      <p class="eyebrow">FAQs</p>
-      <h2>Frequently Asked Questions</h2>
-      <p class="lead">Can't find your answer here? Ask us directly through the enquiry form.</p>
-      <a class="btn btn-dark" href="#enquiry">Ask a Question
+      <p class="eyebrow" data-i18n="faq.eyebrow">FAQs</p>
+      <h2 data-i18n="faq.title">Frequently Asked Questions</h2>
+      <p class="lead" data-i18n="faq.lead">Can't find your answer here? Ask us directly through the enquiry form.</p>
+      <a class="btn btn-dark" href="#enquiry"><span data-i18n="faq.ask">Ask a Question</span>
         <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="faq" id="faqList"></div>
@@ -715,12 +719,12 @@
   <polyline points="18,267 48,270 78,268 108,262 138,246 168,231 198,235 228,234 258,242 288,251 318,236 348,210 378,209 408,206 438,216 468,219 498,220 528,198 558,182 588,179 618,181 648,184 678,194 708,189 738,177 768,155 798,139 828,140 858,147 888,166 918,158 948,151 978,126 1008,112 1038,113 1068,120 1098,128 1128,131 1158,118 1188,103 1218,86 1248,90 1278,90 1308,94 1338,92 1368,92 1398,65 1428,53" fill="none" stroke="#22D3EE" stroke-opacity=".7" stroke-width="2" stroke-linejoin="round"/>
   </svg>
   <div class="wrap final-inner">
-    <h2>Learn the Market. <span class="hl">Understand the Risk.</span> Build Your Skills.</h2>
-    <p>Take the first step towards structured share market education with Lord Sai Share Market Academy.</p>
+    <h2 data-i18n-html="final.title">Learn the Market. <span class="hl">Understand the Risk.</span> Build Your Skills.</h2>
+    <p data-i18n="final.lead">Take the first step towards structured share market education with Lord Sai Share Market Academy.</p>
     <div class="cta-row cta-center">
-      <a class="btn btn-primary btn-lg" href="#enquiry">Enquire About the Course
+      <a class="btn btn-primary btn-lg" href="#enquiry"><span data-i18n="final.cta">Enquire About the Course</span>
         <svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-ghost btn-lg js-wa" href="#" hidden>Talk to Us on WhatsApp</a>
+      <a class="btn btn-ghost btn-lg js-wa" href="#" hidden data-i18n="final.wa">Talk to Us on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -736,43 +740,44 @@
       <div class="foot-brand">
         <img class="foot-logo" src="assets/lord-sai-logo-420.png" width="420" height="97" loading="lazy"
              alt="Lord Sai Investment &amp; Share Market Academy">
-        <p id="footAbout">Structured share market education covering market fundamentals, analysis, trading approaches and risk management.</p>
+        <p id="footAbout" data-i18n="foot.about">Structured share market education covering market fundamentals, analysis, trading approaches and risk management.</p>
       </div>
 
       <div class="foot-col">
-        <h2>Contact</h2>
+        <h2 data-i18n="foot.contact">Contact</h2>
         <ul class="foot-contact" id="footContact">
           <li id="fcPhone" hidden><a href="#" id="fcPhoneLink"></a></li>
           <li id="fcEmail" hidden><a href="#" id="fcEmailLink"></a></li>
           <li id="fcAddress" hidden><span id="fcAddressText"></span></li>
           <li id="fcWa" hidden><a href="#" class="js-wa" id="fcWaLink">WhatsApp</a></li>
         </ul>
-        <p class="muted" id="fcNone">Contact details are not published on this page yet.</p>
+        <p class="muted" id="fcNone" data-i18n="foot.none">Contact details are not published on this page yet.</p>
         <ul class="foot-links foot-policy" id="footPolicy" hidden>
-          <li><a href="#" id="footPrivacy" hidden>Privacy Policy</a></li>
-          <li><a href="#" id="footTerms" hidden>Terms of Use</a></li>
+          <li><a href="#" id="footPrivacy" hidden data-i18n="link.privacy">Privacy Policy</a></li>
+          <li><a href="#" id="footTerms" hidden data-i18n="link.terms">Terms of Use</a></li>
         </ul>
       </div>
     </div>
 
     <div class="foot-risk">
-      <strong>Risk disclosure</strong>
-      <p>Share market investments and trading involve risk. This course provides education and does not guarantee profits or future investment performance. Understand the risks before making financial decisions.</p>
+      <strong data-i18n="foot.riskTitle">Risk disclosure</strong>
+      <p data-i18n="foot.risk">Share market investments and trading involve risk. This course provides education and does not guarantee profits or future investment performance. Understand the risks before making financial decisions.</p>
     </div>
 
     <div class="foot-base">
       <p id="copyright">© 2026 Lord Sai Investment &amp; Share Market Academy. All rights reserved.</p>
-      <p>Educational content only. Not investment advice.</p>
+      <p data-i18n="foot.edu">Educational content only. Not investment advice.</p>
     </div>
   </div>
 </footer>
 
 <!-- Sticky enquiry bar (small screens) -->
 <div class="sticky-cta" id="stickyCta">
-  <span>Start learning the market the structured way.</span>
-  <a class="btn btn-primary btn-sm" href="#enquiry">Get Course Details</a>
+  <span data-i18n="sticky.text">Start learning the market the structured way.</span>
+  <a class="btn btn-primary btn-sm" href="#enquiry" data-i18n="cta.details">Get Course Details</a>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/course-config.js"></script>
 <script src="js/main.js"></script>
 </body>

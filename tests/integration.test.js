@@ -207,7 +207,20 @@ async function boot(patch) {
   check("contact details render", !$("#fcPhone").hidden && !$("#fcEmail").hidden && $("#fcNone").hidden);
   check("policy links render", !$("#footPolicy").hidden && !$("#footPrivacy").hidden);
 
-  console.log("\n[11] Console cleanliness");
+  console.log("\n[11] Language switch — Marathi and Hindi");
+  const sel = $("#langSelect");
+  sel.value = "mr"; sel.dispatchEvent(new w.Event("change"));
+  check("html lang becomes mr", d.documentElement.lang === "mr");
+  check("headline in Marathi", /अतिरिक्त उत्पन्न/.test($("h1").textContent), $("h1").textContent.slice(0,40));
+  check("curriculum from config in Marathi", /शेअर मार्केटची मूलतत्त्वे/.test(d.querySelector(".mod-title").textContent));
+  check("fee now stated in Marathi FAQ", /कोर्सची फी ₹12,000 आहे/.test($("#faqList").textContent));
+  sel.value = "hi"; sel.dispatchEvent(new w.Event("change"));
+  check("headline in Hindi", /अतिरिक्त आमदनी/.test($("h1").textContent));
+  check("placeholders translated", $("#fName").getAttribute("placeholder") === "आपका पूरा नाम");
+  sel.value = "en"; sel.dispatchEvent(new w.Event("change"));
+  check("back to English", /Extra Income/.test($("h1").textContent) && d.documentElement.lang === "en");
+
+  console.log("\n[12] Console cleanliness");
   const real = consoleErrors.filter(e => !/Could not parse CSS|Not implemented|fonts\.googleapis|css/i.test(e));
   check("no page errors raised", real.length === 0, real.slice(0,4));
 
